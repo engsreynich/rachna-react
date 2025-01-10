@@ -1,14 +1,36 @@
 
+import About from './Layout/About';
+import Component from './Layout/Component';
+import Docs from './Layout/Docs';
+import Footer from './Layout/Footer';
+import Home from './Layout/Home';
+import Navbar from './Layout/Navbar';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-function App() {
-  return (
-    <>
-      <h2 className="text-center text-4xl text-blue-500 font-bold">
-        Hello World
-      </h2>
-       
-    </>
-  )
+function Layout (){
+    return(
+        <>
+        <Navbar/>
+            <Routes>
+                <Route index element={<Home/>}/>
+                <Route path='docs' element={<Docs/>}/>
+                <Route path='component' element={<Component/>}/>
+                <Route path='About' element={<About/>}/>
+            </Routes>
+        <Footer/>
+        </>
+    );
 }
 
-export default App
+
+function App() {
+    return (
+        <>
+        <BrowserRouter>
+            <Layout/>
+        </BrowserRouter>
+        </>
+    );
+}
+
+export default App;
