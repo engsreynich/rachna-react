@@ -1,31 +1,42 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { FiMoon, FiSun } from 'react-icons/fi';
 
-function Navbar() {
-    // State to manage menu visibility
+function Navbar({ darkMode, toggleDarkMode }) {
     const [menuOpen, setMenuOpen] = useState(false);
 
-    // Function to toggle the menu
     const toggleMenu = () => {
         setMenuOpen((prev) => !prev);
     };
 
     return (
-        <div>
-            <nav className="bg-pink-500 dark:bg-gray-900 w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
-                <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <div className="sticky top-0">
+            <nav className="bg-pink-500 dark:bg-gray-900 w-full z-20 start-0 border-b border-gray-200 dark:border-gray-600">
+                <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
                     {/* Logo */}
-                    <a href="https://flowbite.com/" className="flex items-center space-x-3 rtl:space-x-reverse">
-                        <img src="/img/logo_fordarkmood.png" className="h-8" alt="Flowbite Logo" />
+                    <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+                        <img src="/img/logo_fordarkmood.png" className="h-8" alt="Logo" />
                     </a>
-                    {/* Get Started Button & Hamburger */}
-                    <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+
+                    {/* Right Section: Get Started + Dark Mode */}
+                    <div className="flex items-center space-x-4 md:order-2 rtl:space-x-reverse">
+                        {/* Get Started Button */}
                         <button
                             type="button"
-                            className="text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-blue-800"
+                            className="text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800"
                         >
-                            Get started
+                            Get Started
                         </button>
+
+                        {/* Dark Mode Toggle */}
+                        <button
+                            onClick={toggleDarkMode}
+                            className="text-white p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-600"
+                        >
+                            {darkMode ? <FiSun size={24} /> : <FiMoon size={24} />}
+                        </button>
+
+                        {/* Hamburger Menu */}
                         <button
                             type="button"
                             className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
@@ -51,6 +62,7 @@ function Navbar() {
                             </svg>
                         </button>
                     </div>
+
                     {/* Menu Links */}
                     <div
                         className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${
@@ -58,7 +70,7 @@ function Navbar() {
                         }`}
                         id="navbar-sticky"
                     >
-                        <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-pink-60 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-pink-500 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                        <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-pink-500 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-pink-500 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                             <NavLink
                                 to="/"
                                 className={({ isActive }) =>
