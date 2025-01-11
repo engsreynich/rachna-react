@@ -22,7 +22,7 @@ function Home(props) {
                     </a>
                 </div>
                 <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
-                    <img src="/public/img/hero.png" alt="mockup" />
+                    <img src="/img/hero.png" alt="mockup" />
                 </div>
             </div>
         </section>
