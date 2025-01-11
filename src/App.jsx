@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Navbar from './Layout/Navbar';
 import Footer from './Layout/Footer';
 import About from './Layout/About';
@@ -23,20 +23,30 @@ function Layout({ darkMode, toggleDarkMode }) {
 }
 
 function App() {
-    const [darkMode, setDarkMode] = useState(false);
+    const [darkMode, setDarkMode] = useState(
+        () => localStorage.getItem('darkMode') === 'true' // Initialize darkMode from localStorage
+    );
 
-    // Darkmode Fun
     const toggleDarkMode = () => {
-        setDarkMode(!darkMode);
-        document.documentElement.classList.toggle('dark', !darkMode);
+        const newDarkMode = !darkMode;
+        setDarkMode(newDarkMode);
+        document.documentElement.classList.toggle('dark', newDarkMode);
+        localStorage.setItem('darkMode', newDarkMode); // Save darkMode state to localStorage
     };
 
+    useEffect(() => {
+        // Apply dark mode class on initial render based on localStorage
+        if (darkMode) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    }, [darkMode]);
+
     return (
-        <>
-            <BrowserRouter>
-                <Layout darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-            </BrowserRouter>
-        </>
+        <BrowserRouter>
+            <Layout darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+        </BrowserRouter>
     );
 }
 

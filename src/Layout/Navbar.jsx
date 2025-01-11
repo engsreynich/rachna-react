@@ -18,12 +18,11 @@ function Navbar({ darkMode, toggleDarkMode }) {
                         <img src="/img/logo_fordarkmood.png" className="h-8" alt="Logo" />
                     </a>
 
-                    {/* Right Section: Get Started + Dark Mode */}
                     <div className="flex items-center space-x-4 md:order-2 rtl:space-x-reverse">
                         {/* Get Started Button */}
                         <button
                             type="button"
-                            className="text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800"
+                            className="text-white bg-yellow-600 hover:bg-yellow-700 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-yellow-700 dark:hover:bg-yellow-800 dark:focus:ring-yellow-800"
                         >
                             Get Started
                         </button>
@@ -31,7 +30,7 @@ function Navbar({ darkMode, toggleDarkMode }) {
                         {/* Dark Mode Toggle */}
                         <button
                             onClick={toggleDarkMode}
-                            className="text-white p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-600"
+                            className="text-white p-1 rounded-lg hover:bg-yellow-300 dark:hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-600"
                         >
                             {darkMode ? <FiSun size={24} /> : <FiMoon size={24} />}
                         </button>
@@ -105,7 +104,7 @@ function Navbar({ darkMode, toggleDarkMode }) {
                                     }`
                                 }
                             >
-                                Component
+                                Components
                             </NavLink>
                             <NavLink
                                 to="/about"
