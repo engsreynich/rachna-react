@@ -3,9 +3,9 @@ import React from 'react';
 function Docs() {
     return (
         <div className="">
-            <div className="container mx-auto m-6 px-4 flex">
+            <div className="container mx-auto m-6 px-4 flex justify-center">
                 {/* Sidebar */}
-                <aside className="w-1/4 bg-white rounded-lg shadow-lg p-4">
+                <aside className="w-1/4 bg-white rounded-lg shadow-lg p-4 hidden sm:block">
                     <nav className="space-y-4">
                         <a href="#introduction" className="block text-pink-600 font-semibold">Introduction</a>
                         <a href="#installation" className="block hover:text-pink-600">Installation</a>
