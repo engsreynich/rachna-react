@@ -3,8 +3,8 @@ import React from 'react';
 function Docs() {
     return (
         <>
-        <div className="bg-gray-100 dark:bg-gray-950 py-6 ">
-            <div className="container mx-auto px-4 flex justify-center">
+        <div className="bg-gray-100 dark:bg-gray-950 py-6">
+            <div className="container my-6 px-0 flex justify-center sm:p-4">
                 {/* Sidebar */}
                 <aside className="w-1/4 bg-white dark:bg-gray-900 dark:text-white rounded-lg shadow-lg p-4 hidden sm:block">
                     <nav className="space-y-4">

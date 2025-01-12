@@ -2,9 +2,9 @@ import React from "react";
 
 function Component(props) {
   return (
-    <div className="container mx-auto mt-6 px-4 flex">
+    <div className="container my-6 px-0 flex justify-center sm:p-4">
   {/* Sidebar */}
-  <aside className="w-1/4 bg-white rounded-lg shadow-lg p-4">
+  <aside className="w-1/4 bg-white rounded-lg shadow-lg p-4 hidden sm:block">
     <nav className="space-y-4">
       <a href="#Buttons" className="block text-pink-600 font-semibold">
         Buttons
