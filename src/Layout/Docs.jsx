@@ -3,8 +3,8 @@ import React from 'react';
 function Docs() {
     return (
         <>
-        <div className="bg-gray-100 dark:bg-gray-950 py-6">
-            <div className="container my-6 px-0 flex justify-center sm:p-4">
+        <div className="bg-gray-100 dark:bg-gray-950 py-6 flex justify-center">
+            <div className="container flex justify-center gap-6">
                 {/* Sidebar */}
                 <aside className="w-1/4 bg-white dark:bg-gray-900 dark:text-white rounded-lg shadow-lg p-4 hidden sm:block">
                     <nav className="space-y-4">
@@ -21,7 +21,7 @@ function Docs() {
                 </aside>
 
                 {/* Main Content */}
-                <main className="w-3/4 ml-6">
+                <main className="w-3/4">
                     {/* Introduction */}
                     <section id="introduction" className="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6 mb-6">
                         <h1 className="text-2xl font-bold text-pink-800 dark:text-pink-400">Introduction</h1>
