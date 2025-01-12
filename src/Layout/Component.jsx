@@ -2,9 +2,10 @@ import React from "react";
 
 function Component(props) {
   return (
-    <div className="container my-6 px-0 flex justify-center sm:p-4">
+    <div className="bg-gray-100 dark:bg-gray-950 py-6 flex justify-center">
+    <div className="container flex justify-center gap-6">
   {/* Sidebar */}
-  <aside className="w-1/4 bg-white rounded-lg shadow-lg p-4 hidden sm:block">
+  <aside className="w-1/4 bg-white dark:bg-gray-900 dark:text-white rounded-lg shadow-lg p-4 hidden sm:block">
     <nav className="space-y-4">
       <a href="#Buttons" className="block text-pink-600 font-semibold">
         Buttons
@@ -20,7 +21,7 @@ function Component(props) {
       </a>
     </nav>
   </aside>
-  <main className="w-3/4 bg-white p-6 rounded-lg shadow-lg ml-6">
+  <main className="px-1 sm:px-0 w-[100%] sm:w-3/4">
     {/* text */}
     <div>
       <h1 className="text-pink-600 font-bold text-2xl">
@@ -42,9 +43,9 @@ function Component(props) {
         </p>
       </div>
       {/* box put button */}
-      <div className="bg-white shadow-md rounded-lg mt-8">
+      <div className="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6 mb-6">
         {/* head box */}
-        <div className="flex bg-gray-100 rounded justify-between border-b p-4">
+        <div className="flex bg-gray-100 dark:bg-gray-900 rounded justify-between border-b p-4">
           <button className="flex rounded-lg bg-white px-2 py-1 items-center space-x-2 text-gray-600 hover:text-gray-800">
             <img
               src="https://img.icons8.com/ios-glyphs/24/github.png"
@@ -728,7 +729,7 @@ function Component(props) {
     </section>
   </main>
 </div>
-
+</div>
   );
 }
 
