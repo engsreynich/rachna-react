@@ -21,7 +21,7 @@ function Docs() {
                 </aside>
 
                 {/* Main Content */}
-                <main className="w-3/4">
+                <main className="px-1 sm:px-0 w-[100%] sm:w-3/4">
                     {/* Introduction */}
                     <section id="introduction" className="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6 mb-6">
                         <h1 className="text-2xl font-bold text-pink-800 dark:text-pink-400">Introduction</h1>
