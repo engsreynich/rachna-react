@@ -43,7 +43,7 @@ function Component(props) {
         </p>
       </div>
       {/* box put button */}
-      <div className="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6 mb-6">
+      <div className="bg-white dark:bg-gray-900 rounded-lg shadow-lg mb-6">
         {/* head box */}
         <div className="flex bg-gray-100 dark:bg-gray-900 rounded justify-between border-b p-4">
           <button className="flex rounded-lg bg-white px-2 py-1 items-center space-x-2 text-gray-600 hover:text-gray-800">
