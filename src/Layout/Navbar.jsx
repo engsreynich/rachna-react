@@ -11,7 +11,7 @@ function Navbar({ darkMode, toggleDarkMode }) {
 
     return (
         <div className="sticky top-0">
-            <nav className="bg-pink-500 dark:bg-gray-900 w-full z-20 start-0 border-b border-gray-200 dark:border-gray-600">
+            <nav className="bg-pink-500 dark:bg-gray-950 w-full z-20 start-0 border-b border-gray-200 dark:border-gray-600">
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
                     {/* Logo */}
                     <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
@@ -69,7 +69,7 @@ function Navbar({ darkMode, toggleDarkMode }) {
                         }`}
                         id="navbar-sticky"
                     >
-                        <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-pink-500 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-pink-500 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                        <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-pink-500 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-pink-500 dark:bg-gray-800 md:dark:bg-gray-950 dark:border-gray-700">
                             <NavLink
                                 to="/"
                                 className={({ isActive }) =>

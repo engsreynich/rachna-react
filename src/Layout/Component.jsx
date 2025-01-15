@@ -2,7 +2,7 @@ import React from "react";
 
 function Component(props) {
   return (
-    <div className="bg-gray-100 dark:bg-gray-950 py-6 flex justify-center">
+    <div className="bg-gray-100 dark:bg-gray-900 py-6 flex justify-center">
     <div className="container flex justify-center gap-6">
   {/* Sidebar */}
   <aside className="w-1/4 bg-white dark:bg-gray-900 dark:text-white rounded-lg shadow-lg p-4 hidden sm:block">
@@ -27,7 +27,7 @@ function Component(props) {
       <h1 className="text-pink-600 font-bold text-2xl">
         Tailwind CSS Button-Rachna
       </h1>
-      <p className="mt-4 mb-4 text-gray-600">
+      <p className="mt-4 mb-4 text-gray-600 dark:text-white">
         Use the button component inside forms, as links, social login, payment
         options with support for multiple styles, colors, gradients, and shadows
       </p>
@@ -37,7 +37,7 @@ function Component(props) {
     <section>
       <div className="mt-8">
         <h4 className="text-pink-600 font-bold text-xl">Default button</h4>
-        <p>
+        <p className="dark:text-white">
           Use these default button styles with multiple colors to indicate an
           action or link within your website
         </p>
@@ -154,7 +154,7 @@ function Component(props) {
     <section className="mt-10">
       <div>
         <h4 className="text-pink-600 font-bold text-xl">Button pills</h4>
-        <p>
+        <p className="dark:text-white">
           The button pills can be used as an alternative style by using fully
           rounded edges.
         </p>
@@ -274,7 +274,7 @@ function Component(props) {
     <section className="mt-10">
       <div>
         <h4 className="text-pink-600 font-bold text-xl">Gradient monochrome</h4>
-        <p>
+        <p className="dark:text-white">
           These beautifully colored buttons built with the gradient color stops
           utility classes from Tailwind CSS can be used as a creative
           alternative to the default button styles.
@@ -381,7 +381,7 @@ function Component(props) {
     <section className="mt-10">
       <div>
         <h4 className="text-pink-600 font-bold text-xl">Social buttons</h4>
-        <p>
+        <p className="dark:text-white">
           Use these button styles when building social media login forms using
           Facebook, GitHub, and Apple. These buttons use the new bg-[#hex]
           utility classes from Tailwind CSS v3.0.
@@ -545,7 +545,7 @@ function Component(props) {
     <section className="mt-10">
       <div>
         <h4 className="text-pink-600 font-bold text-xl">Button with icon</h4>
-        <p>
+        <p className="text-slate-900 dark:text-white">
           Use the following examples to add a SVG icon inside the button either
           on the left.
         </p>
