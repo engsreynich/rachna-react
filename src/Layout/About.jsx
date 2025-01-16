@@ -2,8 +2,7 @@ import React from 'react';
 
 function About(props) {
     return (
-        <>
-<<<<<<< HEAD
+         <>
         <div className='flex justify-center py-2 sm:p-6'>
        
         <div className="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -48,19 +47,6 @@ function About(props) {
               </li>
             </ul>
           </div>
-=======
-  <div className="flex flex-col lg:flex-row min-h-screen gap-6 p-6">
-    {/* Sidebar Component 1 */}
-    <div className="w-64 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-      <div className="p-6">
-        <div className="flex items-center mb-6 bg-black">
-          <img
-            src="https://via.placeholder.com/40"
-            alt="Logo"
-            className="w-10 h-10 rounded-full mr-3"
-          />
-          <h2 className="text-2xl font-semibold">Dashboard</h2>
->>>>>>> 8ceb18b (add)
         </div>
       
         {/* Sidebar Component 2 */}
@@ -158,9 +144,10 @@ function About(props) {
         rel="stylesheet"
       />
       </div>
-      </>
-           
+      
+        </>
+
     );
-}
+};
 
 export default About;
