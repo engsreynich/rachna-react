@@ -7,7 +7,7 @@ function About(props) {
     {/* Sidebar Component 1 */}
     <div className="w-64 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
       <div className="p-6">
-        <div className="flex items-center mb-6">
+        <div className="flex items-center mb-6 bg-black">
           <img
             src="https://via.placeholder.com/40"
             alt="Logo"
