@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Footer() {
     return (
@@ -6,37 +7,37 @@ function Footer() {
             <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
                 <div className="md:flex md:justify-between">
                     <div className="mb-6 md:mb-0">
-                        <a href="https://flowbite.com/" className="flex items-center">
+                        <Link to="/" className="flex items-center">
                             <img src="/img/logo_fordarkmood.png" className="h-8 me-3" alt="FlowBite Logo" />
                             {/* <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span> */}
-                        </a>
+                        </Link>
                     </div>
                     <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
                         <div>
                             <h2 className="mb-6 text-sm font-semibold text-slate-100 uppercase dark:text-white">Quick links</h2>
                             <ul className="text-slate-100 dark:text-slate-100 font-medium">
-                                <li className="mb-4">
-                                    <a href="https://flowbite.com/" className="hover:underline">Home</a>
-                                </li>
-                                <li className='mb-4'>
-                                    <a href="https://tailwindcss.com/" className="hover:underline">Docs</a>
-                                </li>
-                                <li className='mb-4'>
-                                    <a href="https://tailwindcss.com/" className="hover:underline">Component</a>
-                                </li>
-                                <li className='mb-4'>
-                                    <a href="https://tailwindcss.com/" className="hover:underline">About</a>
-                                </li>
+                            <li className="mb-4">
+                <Link to="/" className="hover:underline" aria-label="Home">Home</Link>
+            </li>
+            <li className="mb-4">
+                <Link to="/docs" className="hover:underline" aria-label="Documentation">Docs</Link>
+            </li>
+            <li className="mb-4">
+                <Link to="/component" className="hover:underline" aria-label="Component Page">Component</Link>
+            </li>
+            <li className="mb-4">
+                <Link to="/about" className="hover:underline" aria-label="About Us">About</Link>
+            </li>
                             </ul>
                         </div>
                         <div>
                             <h2 className="mb-6 text-sm font-semibold text-slate-100 uppercase dark:text-white">Follow us</h2>
                             <ul className="text-slate-100 dark:text-slate-100 font-medium">
                                 <li className="mb-4">
-                                    <a href="https://github.com/themesberg/flowbite" className="hover:underline">Github</a>
+                                    <a href="https://github.com/NHANHKIMSON" className="hover:underline">Github</a>
                                 </li>
                                 <li>
-                                    <a href="https://discord.gg/4eeurUVvTy" className="hover:underline">Youtube</a>
+                                    <a href="/" className="hover:underline">Youtube</a>
                                 </li>
                             </ul>
                         </div>
