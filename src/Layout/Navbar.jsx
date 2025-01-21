@@ -10,7 +10,7 @@ function Navbar({ darkMode, toggleDarkMode }) {
     };
 
     return (
-        <div className="sticky top-0">
+        <div className="sticky top-0 z-50">
             <nav className="bg-pink-500 dark:bg-gray-950 w-full z-20 start-0 border-b border-gray-200 dark:border-gray-600">
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
                     {/* Logo */}

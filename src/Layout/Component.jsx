@@ -46,7 +46,7 @@ function Component(props) {
       <div className="bg-white dark:bg-gray-900 rounded-lg shadow-lg mb-6">
         {/* head box */}
         <div className="flex bg-gray-100 dark:bg-gray-900 rounded justify-between border-b p-4">
-          <button className="flex rounded-lg bg-white px-2 py-1 items-center space-x-2 text-gray-600 hover:text-gray-800">
+          <button className="flex rounded-lg bg-white dark:bg-slate-900 px-2 py-1 items-center space-x-2 text-gray-600 dark:text-slate-100 hover:text-gray-800">
             <img
               src="https://img.icons8.com/ios-glyphs/24/github.png"
               alt="GitHub Icon"
