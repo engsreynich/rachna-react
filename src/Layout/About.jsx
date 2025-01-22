@@ -202,7 +202,109 @@ function About(props) {
     </div>
   </section>
 
+  <!-- Our Mentor-->
+        <section class="py-12 px-6">
+            <div class="max-w-7xl mx-auto  text-center">
+                <h2 class="text-3xl font-bold text-pink-600">Our Mentor</h2>
+                <div class="w-auto gap-24 shadow-lg p-14 ring-gray-100 flex flex-wrap justify-center">
+                    <div class="bg-white w-[160px] h-auto flex flex-col shadow-lg items-center m-4 rounded-lg">
+                        <div class="relative bottom-[20px]">
+                            <img src="./image/Cher Mey.jpg" alt="mentor" class="w-[100px] h-[100px] rounded-full object-fill">
+                        </div>
+                        <div class="text-center">
+                            <h3 class="font-bold">Teacher</h3>
+                            <p class="pb-[10px]">Mom Reaksmey</p>
+                        </div>
+                    </div>
+                    <div class="bg-white w-[160px] h-auto flex flex-col shadow-lg items-center m-4 rounded-lg">
+                        <div class="relative bottom-[20px]">
+                            <img src="./image/Cher Leang.jpg" alt="mentor" class="w-[100px] h-[100px] rounded-full object-fill">
+                        </div>
+                        <div class="text-center">
+                            <h3 class="font-bold">Teacher</h3>
+                            <p class="pb-[10px]">Ing Muyleang</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Team Members-->
+  <section class="py-12 px-6">
+            <div class="max-w-7xl mx-auto text-center">
+                <h2 class="text-3xl font-bold text-pink-600">Team Members</h2>
+                <div class="w-auto gap-24 shadow-lg p-14 ring-gray-100 flex flex-wrap justify-center">
+                    <!-- First Row (first 4 members) -->
+                    <div class="bg-white w-[160px] h-auto flex flex-col shadow-lg items-center m-4 rounded-lg">
+                        <div class="relative bottom-[20px]">
+                            <img src="./image/Son.jpg" alt="mentor" class="w-[100px] h-[100px] rounded-full object-fill">
+                        </div>
+                        <div class="text-center">
+                            <h3 class="font-bold">Leader</h3>
+                            <p class="pb-[10px]">Nhanh Kimson</p>
+                        </div>
+                    </div>
+                    <div class="bg-white w-[160px] h-auto flex flex-col shadow-lg items-center m-4 rounded-lg">
+                        <div class="relative bottom-[20px]">
+                            <img src="./image/Houy.png" alt="mentor" class="w-[100px] h-[100px] rounded-full object-fill">
+                        </div>
+                        <div class="text-center">
+                            <h3 class="font-bold">Member</h3>
+                            <p class="pb-[10px]">Bai Kimhouy</p>
+                        </div>
+                    </div>
+                    <div class="bg-white w-[160px] h-auto flex flex-col shadow-lg items-center m-4 rounded-lg">
+                        <div class="relative bottom-[20px]">
+                            <img src="./image/Panha.png" alt="mentor" class="w-[100px] h-[100px] rounded-full object-fill">
+                        </div>
+                        <div class="text-center">
+                            <h3 class="font-bold">Member</h3>
+                            <p class="pb-[10px]">Thok Panha</p>
+                        </div>
+                    </div>
+                    <div class="bg-white w-[160px] h-auto flex flex-col shadow-lg items-center m-4 rounded-lg">
+                        <div class="relative bottom-[20px]">
+                            <img src="./image/Chhengngor.jpg" alt="mentor" class="w-[100px] h-[100px] rounded-full object-fill">
+                        </div>
+                        <div class="text-center">
+                            <h3 class="font-bold">Member</h3>
+                            <p class="pb-[10px]">Phal Chhengngor</p>
+                        </div>
+                    </div>
 
+                    <!-- Last Row - Centered (last 3 members) -->
+                        <!-- Member 5 -->
+                        <div class="bg-white w-[160px] h-auto flex flex-col shadow-lg items-center m-4 rounded-lg">
+                            <div class="relative bottom-[20px]">
+                                <img src="./image/Na.jpg" alt="mentor" class="w-[100px] h-[100px] rounded-full object-fill">
+                            </div>
+                            <div class="text-center">
+                                <h3 class="font-bold">Member</h3>
+                                <p class="pb-[10px]">Svay Sereyrathana</p>
+                            </div>
+                        </div>
+                        <!-- Member 6 -->
+                        <div class="bg-white w-[160px] h-auto flex flex-col shadow-lg items-center m-4 rounded-lg">
+                            <div class="relative bottom-[20px]">
+                                <img src="./image/Nich.jpg" alt="mentor" class="w-[100px] h-[100px] rounded-full object-fill">
+                            </div>
+                            <div class="text-center">
+                                <h3 class="font-bold">Member</h3>
+                                <p class="pb-[10px]">Phorn Sunnich</p>
+                            </div>
+                        </div>
+                        <!-- Member 7 -->
+                        <div class="bg-white w-[160px] h-auto flex flex-col shadow-lg items-center m-4 rounded-lg">
+                            <div class="relative bottom-[20px]">
+                                <img src="./image/Srey Nich.jpg" alt="mentor" class="w-[100px] h-[100px] rounded-full object-fill">
+                            </div>
+                            <div class="text-center">
+                                <h3 class="font-bold">Member</h3>
+                                <p class="pb-[10px]">Eng Sreynich</p>
+                            </div>
+                        </div>
+                </div>
+            </div>
+  </section>
 
 
 
