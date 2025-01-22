@@ -78,7 +78,8 @@ function Docs() {
                         </p>
                         <pre className="bg-pink-100 dark:bg-pink-900 text-pink-600 dark:text-pink-200 p-4 rounded-lg mt-4 overflow-auto mt-3 flex items-start">
                             <i className="fa-regular fa-copy text-white"></i>
-                            &lt;link rel="stylesheet" href="https://cdn.rachna.com/styles.min.css" /&gt;
+    
+                            <code>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</code>
                         </pre>
                     </section>
 
