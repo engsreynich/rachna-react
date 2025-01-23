@@ -6,7 +6,7 @@ function Docs() {
       <div className="bg-gray-100 dark:bg-gray-950 py-6 flex justify-center">
         <div className="container flex justify-center gap-6">
           {/* Sidebar */}
-          <aside className="w-1/4 bg-white dark:bg-gray-900 dark:text-white rounded-lg shadow-lg p-4 hidden sm:block">
+          <aside className="w-1/4  bg-white dark:bg-gray-900 dark:text-white rounded-lg shadow-lg p-4 hidden sm:block">
             <nav className="space-y-4">
               <a
                 href="#introduction"
