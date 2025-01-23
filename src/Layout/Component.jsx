@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import CodeDisplay from "../components/CodeDisplay"
+import SearchBox from "../components/SearchBox"
 
 function Component(props) {
   const [copiedStates, setCopiedStates] = useState({});
@@ -1070,55 +1072,10 @@ function Component(props) {
               <div className="bg-white rounded-lg shadow-sm">
                 <div className="bg-gray-300 flex justify-between items-center px-4 py-2 border-b border-gray-300">
                   <span className="text-black font-medium">HTML</span>
-                  <button
-                    className="flex items-center space-x-3 text-black hover:text-gray-800"
-                    onClick={() =>
-                      handleCopy(
-                        `
-                <div className="flex p-4">
-                  {/* Search Box */}
-                  <aside className="w-1/4 mt-6 mx-auto">
-                    <div className="flex items-center justify-center py-4">
-                      <div className="relative">
-                        <input
-                          type="text"
-                          placeholder="Search..."
-                          className="px-4 py-2 w-64 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        />
-                        <button className="absolute right-0 top-0 mt-2 mr-2 text-gray-500 hover:text-blue-500 focus:outline-none">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width={20}
-                            height={20}
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM10 18l6 6"
-                            />
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-                  </aside>
-                </div>
-                        `.trim(), // Trim to remove extra whitespace
-                        "defaultButton"
-                      )
-                    }
-                  >
-                    <i className="far fa-copy" />
-                    <span>
-                      {copiedStates["defaultButton"] ? "Copied!" : "Copy"}
-                    </span>
-                  </button>
+                
                 </div>
                 {/* Content */}
-                <div className="overflow-x-auto bg-gray-100 p-2 rounded-md">
+                {/* <div className="overflow-x-auto bg-gray-100 p-2 rounded-md">
                   <pre className="text-xs whitespace-pre leading-tight mx-auto pl-0">
                     {"                        "}
                     <code>
@@ -1180,7 +1137,8 @@ function Component(props) {
                     {"\n"}
                     {"                "}
                   </pre>
-                </div>
+                </div> */}
+                <SearchBox/>
               </div>
             </div>
 
@@ -1260,7 +1218,8 @@ function Component(props) {
                   </button>
                 </div>
                 {/* Content */}
-                <div className="overflow-x-auto bg-gray-100 p-2 rounded-md">
+                <CodeDisplay />
+                {/* <div className="overflow-x-auto bg-gray-100 p-2 rounded-md">
                   <pre className="text-xs whitespace-pre leading-tight pl-0 mx-auto">
                     {"                        "}
                     <code>
@@ -1305,7 +1264,7 @@ function Component(props) {
                     {"\n"}
                     {"              "}
                   </pre>
-                </div>
+                </div> */}
               </div>
             </div>
             {/* Input url */}
