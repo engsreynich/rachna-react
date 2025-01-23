@@ -4,7 +4,7 @@ function About() {
   return (
     <>
       <div>
-        {/* About Section */}
+        {/* About Section component*/}
         <section className="flex flex-col lg:flex-row gap-6  dark:bg-gray-900  py-12 px-6">
           {/* Image and Story */}
           <div className="flex-1">

@@ -1476,6 +1476,7 @@ function Component(props) {
                     </button>
                   </form>
                 </div>
+                
                 <div className="bg-white rounded-lg shadow-sm">
                   <div className="bg-gray-300 flex justify-between items-center px-4 py-2 border-b border-gray-300">
                     <span className="text-black font-medium">HTML</span>
