@@ -1,6 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Component(props) {
+  const [copiedStates, setCopiedStates] = useState({});
+
+  // Function to handle copying code
+  const handleCopy = (code, id) => {
+    navigator.clipboard
+      .writeText(code)
+      .then(() => {
+        setCopiedStates((prev) => ({ ...prev, [id]: true }));
+        setTimeout(() => {
+          setCopiedStates((prev) => ({ ...prev, [id]: false }));
+        }, 2000); // Reset after 2 seconds
+      })
+      .catch((err) => {
+        console.error("Failed to copy code: ", err);
+      });
+  };
+
   return (
     <div className="bg-gray-100 dark:bg-gray-950 py-6 flex justify-center">
       <div className="container flex justify-center gap-6">
@@ -105,9 +122,25 @@ function Component(props) {
               <div className="bg-white rounded-lg shadow-sm">
                 <div className="bg-gray-300 flex justify-between items-center px-4 py-2 border-b border-gray-300">
                   <span className="text-black font-medium">HTML</span>
-                  <button className="flex items-center space-x-3 text-black hover:text-gray-800 ">
+                  <button
+                    className="flex items-center space-x-3 text-black hover:text-gray-800"
+                    onClick={() =>
+                      handleCopy(
+                        `
+<button type="button" class="text-white text-xs font-medium bg-yellow-600 px-[20px] py-[10px] rounded-lg hover:bg-yellow-800 focus:outline-none focus:ring-4 focus:ring-yellow-300 dark:focus:ring-yellow-700 dark:focus:bg-yellow-800">Button</button>
+<button type="button" class="text-white text-xs font-medium bg-blue-600 px-[20px] py-[10px] rounded-lg hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-700 dark:focus:bg-blue-800">Button</button>
+<button type="button" class="text-white text-xs font-medium bg-green-600 px-[20px] py-[10px] rounded-lg hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 dark:focus:ring-green-700 dark:focus:bg-green-800">Button</button>
+<button type="button" class="text-white text-xs font-medium bg-red-600 px-[20px] py-[10px] rounded-lg hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 dark:focus:ring-red-700 dark:focus:bg-red-800">Button</button>
+<button type="button" class="text-white text-xs font-medium bg-orange-600 px-[20px] py-[10px] rounded-lg hover:bg-orange-800 focus:outline-none focus:ring-4 focus:ring-orange-300 dark:focus:ring-orange-700 dark:focus:bg-orange-800">Button</button>
+      `.trim(), // Trim to remove extra whitespace
+                        "defaultButton"
+                      )
+                    }
+                  >
                     <i className="far fa-copy" />
-                    <span>Copy</span>
+                    <span>
+                      {copiedStates["defaultButton"] ? "Copied!" : "Copy"}
+                    </span>
                   </button>
                 </div>
                 {/* code tailwind for each button */}
@@ -222,11 +255,29 @@ function Component(props) {
               <div className="bg-white rounded-lg shadow-sm">
                 <div className="bg-gray-300 flex justify-between items-center px-4 py-2 border-b border-gray-300">
                   <span className="text-black font-medium">HTML</span>
-                  <button className="flex items-center space-x-3 text-black hover:text-gray-800 ">
+                  <button
+                    className="flex items-center space-x-3 text-black hover:text-gray-800"
+                    onClick={() =>
+                      handleCopy(
+                        `
+<button type="button" class="text-white text-xs font-medium bg-yellow-600 px-[30px] py-[10px] rounded-full hover:bg-yellow-800 focus:outline-none focus:ring-4 focus:ring-yellow-300 dark:focus:ring-yellow-700 dark:focus:bg-yellow-800">Button</button>
+<button type="button" class="text-white text-xs font-medium bg-blue-600 px-[30px] py-[10px] rounded-full hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-700 dark:focus:bg-blue-800">Button</button>
+<button type="button" class="text-white text-xs font-medium bg-green-600 px-[30px] py-[10px] rounded-full hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 dark:focus:ring-green-700 dark:focus:bg-green-800">Button</button>
+<button type="button" class="text-white text-xs font-medium bg-red-600 px-[30px] py-[10px] rounded-full hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 dark:focus:ring-red-700 dark:focus:bg-red-800">Button</button>
+<button type="button" class="text-white text-xs font-medium bg-orange-600 px-[30px] py-[10px] rounded-full hover:bg-orange-800 focus:outline-none focus:ring-4 focus:ring-orange-300 dark:focus:ring-orange-700 dark:focus:bg-orange-800">Button</button>
+<button type="button" class="text-white text-xs font-medium bg-fuchsia-600 px-[30px] py-[10px] rounded-full hover:bg-fuchsia-800 focus:outline-none focus:ring-4 focus:ring-fuchsia-300 dark:focus:ring-fuchsia-700 dark:focus:bg-fuchsia-800">Button</button>
+      `.trim(), // Trim to remove extra whitespace
+                        "buttonPills"
+                      )
+                    }
+                  >
                     <i className="far fa-copy" />
-                    <span>Copy</span>
+                    <span>
+                      {copiedStates["buttonPills"] ? "Copied!" : "Copy"}
+                    </span>
                   </button>
                 </div>
+
                 {/* code tailwind for each button */}
                 <div className="overflow-x-auto bg-gray-100 p-2 rounded-md">
                   <pre className="text-xs whitespace-pre leading-tight pl-0">
@@ -1519,6 +1570,1644 @@ function Component(props) {
                 </div>
               </div>
             </div>
+            <div>
+              <h1 className="text-pink-600 font-bold text-[36px]">
+                Tailwind CSS Navigation-Rachna
+              </h1>
+              <p className="mt-4 mb-4 text-gray-600 dark:text-white">
+                Use the button component inside forms, as links, social login,
+                payment options with support for multiple styles, colors,
+                gradients, and shadows
+              </p>
+            </div>
+            <hr />
+
+            {/* nav */}
+            <section>
+              <div className="mt-8">
+                <h4 className="text-pink-600 font-bold text-xl">Default Nav</h4>
+                <p className="dark:text-white">
+                  Basic navbar example with title as Logo..
+                </p>
+              </div>
+              <div className="bg-white dark:bg-gray-900 rounded-lg shadow-lg mb-6">
+                {/* head box */}
+                <div className="flex bg-gray-100 dark:bg-gray-900 rounded justify-between border-b p-4">
+                  <button className="flex rounded-lg bg-white dark:bg-slate-900 px-2 py-1 items-center space-x-2 text-gray-600 dark:text-slate-100 hover:text-gray-800">
+                    <img
+                      src="https://img.icons8.com/ios-glyphs/24/github.png"
+                      alt="GitHub Icon"
+                    />
+                    <small>Edit on GitHub</small>
+                  </button>
+                  <button className="text-gray-600 hover:text-gray-800">
+                    <i className="fa-solid fa-circle-half-stroke" />
+                  </button>
+                </div>
+
+                {/* nav default */}
+                <div className="bg-white-100 p-5">
+                  <nav className="shadow-md bg-white rounded-lg border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+                    <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+                      <a
+                        href="#"
+                        className="flex items-center space-x-3 rtl:space-x-reverse"
+                      >
+                        <img
+                          className="w-auto h-[25px]"
+                          src="./img/3.png"
+                          alt=""
+                        />
+                      </a>
+                      <button
+                        id="mobile-menu-toggle"
+                        type="button"
+                        className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                      ></button>
+                      <div
+                        id="navbar-dropdown"
+                        className="hidden w-full md:block md:w-auto"
+                      >
+                        <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                          <li>
+                            <a
+                              href="#"
+                              className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                            >
+                              Home
+                            </a>
+                          </li>
+                          <li className="relative">
+                            <button
+                              id="dropdownNavbarLink"
+                              className="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
+                            >
+                              Contact us
+                            </button>
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                            >
+                              Services
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </nav>
+                </div>
+
+                <div className="bg-white rounded-lg shadow-sm">
+                  <div className="bg-gray-300 flex justify-between items-center px-4 py-2 border-b border-gray-300">
+                    <span className="text-black font-medium">HTML</span>
+                    <button className="flex items-center space-x-3 text-black hover:text-gray-800 ">
+                      <i className="far fa-copy" />
+                      <span>Copy</span>
+                    </button>
+                  </div>
+                  {/* code tailwind for each button */}
+                  <div className="overflow-x-auto bg-gray-100 p-2 rounded-md">
+                    <pre className="!overflow-visible text-xs pl-4">
+                      {""}
+                      <span class="hljs-tag">
+                        &lt;<span class="hljs-name">nav</span>{" "}
+                        <span class="hljs-attr">class</span>=
+                        <span class="hljs-string">
+                          "shadow-md bg-white rounded-lg border-gray-200
+                          dark:bg-gray-900 dark:border-gray-700"
+                        </span>
+                        &gt; {" \n"}
+                      </span>
+                      <span class="hljs-tag">
+                        &lt;<span class="hljs-name">div</span>{" "}
+                        <span class="hljs-attr">class</span>=
+                        <span class="hljs-string">
+                          "max-w-screen-xl flex flex-wrap items-center
+                          justify-between mx-auto p-4"
+                        </span>
+                        &gt;
+                      </span>
+                      <span class="hljs-tag">
+                        {"\n"}
+                        &lt;<span class="hljs-name">a</span>{" "}
+                        <span class="hljs-attr">href</span>=
+                        <span class="hljs-string">"#"</span>{" "}
+                        <span class="hljs-attr">class</span>=
+                        <span class="hljs-string">
+                          "flex items-center space-x-3 rtl:space-x-reverse"
+                        </span>
+                        &gt;
+                      </span>
+                      <span class="hljs-tag">
+                        {"\n"}
+                        &lt;<span class="hljs-name">img</span>{" "}
+                        <span class="hljs-attr">class</span>=
+                        <span class="hljs-string">"w-auto h-[25px]"</span>{" "}
+                        <span class="hljs-attr">src</span>=
+                        <span class="hljs-string">"../img/3.png"</span>{" "}
+                        <span class="hljs-attr">alt</span>=
+                        <span class="hljs-string">"Logo"</span>
+                        &gt;
+                      </span>
+                      <span class="hljs-tag">
+                        {"\n"}
+                        &lt;/<span class="hljs-name">a</span>&gt;
+                      </span>
+                      <span class="hljs-tag">
+                        {"\n"}
+                        &lt;<span class="hljs-name">button</span>{" "}
+                        <span class="hljs-attr">id</span>=
+                        <span class="hljs-string">"mobile-menu-toggle"</span>{" "}
+                        <span class="hljs-attr">type</span>=
+                        <span class="hljs-string">"button"</span>{" "}
+                        <span class="hljs-attr">class</span>=
+                        <span class="hljs-string">
+                          "inline-flex items-center p-2 w-10 h-10 justify-center
+                          text-sm text-gray-500 rounded-lg md:hidden
+                          hover:bg-gray-100 focus:outline-none focus:ring-2
+                          focus:ring-gray-200 dark:text-gray-400
+                          dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                        </span>
+                        &gt;
+                      </span>
+                      <span class="hljs-tag">
+                        &lt;/<span class="hljs-name">button</span>&gt;
+                      </span>
+                      <span class="hljs-tag">
+                        &lt;<span class="hljs-name">div</span>{" "}
+                        <span class="hljs-attr">id</span>=
+                        <span class="hljs-string">"navbar-dropdown"</span>{" "}
+                        <span class="hljs-attr">class</span>=
+                        <span class="hljs-string">
+                          "hidden w-full md:block md:w-auto"
+                        </span>
+                        &gt;
+                      </span>
+                      <span class="hljs-tag">
+                        &lt;<span class="hljs-name">ul</span>{" "}
+                        <span class="hljs-attr">class</span>=
+                        <span class="hljs-string">
+                          "flex flex-col font-medium p-4 md:p-0 mt-4 border
+                          border-gray-100 rounded-lg bg-gray-50 md:space-x-8
+                          rtl:space-x-reverse md:flex-row md:mt-0 md:border-0
+                          md:bg-white dark:bg-gray-800 md:dark:bg-gray-900
+                          dark:border-gray-700"
+                        </span>
+                        &gt;
+                      </span>
+                      <span class="hljs-tag">
+                        &lt;<span class="hljs-name">li</span>&gt;
+                      </span>
+                      <span class="hljs-tag">
+                        &lt;<span class="hljs-name">a</span>{" "}
+                        <span class="hljs-attr">href</span>=
+                        <span class="hljs-string">"#"</span>{" "}
+                        <span class="hljs-attr">class</span>=
+                        <span class="hljs-string">
+                          "block py-2 px-3 text-gray-900 rounded
+                          hover:bg-gray-100 md:hover:bg-transparent md:border-0
+                          md:hover:text-blue-700 md:p-0 dark:text-white
+                          md:dark:hover:text-blue-500 dark:hover:bg-gray-700
+                          dark:hover:text-white md:dark:hover:bg-transparent"
+                        </span>
+                        &gt;
+                      </span>
+                      Home
+                      <span class="hljs-tag">
+                        &lt;/<span class="hljs-name">a</span>&gt;
+                      </span>
+                      <span class="hljs-tag">
+                        &lt;/<span class="hljs-name">li</span>&gt;
+                      </span>
+                      <span class="hljs-tag">
+                        &lt;<span class="hljs-name">li</span>{" "}
+                        <span class="hljs-attr">class</span>=
+                        <span class="hljs-string">"relative"</span>
+                        &gt;
+                      </span>
+                      <span class="hljs-tag">
+                        &lt;<span class="hljs-name">button</span> {"\n"}
+                        <span class="hljs-attr">id</span>=
+                        <span class="hljs-string">"dropdownNavbarLink"</span>{" "}
+                        <span class="hljs-attr">class</span>=
+                        <span class="hljs-string">
+                          "flex items-center justify-between w-full py-2 px-3
+                          text-gray-900 rounded hover:bg-gray-100
+                          md:hover:bg-transparent md:border-0
+                          md:hover:text-blue-700 md:p-0 md:w-auto
+                          dark:text-white md:dark:hover:text-blue-500
+                          dark:focus:text-white dark:border-gray-700
+                          dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
+                        </span>
+                        &gt;
+                      </span>
+                      Contact us
+                      <span class="hljs-tag">
+                        {"\n"}
+                        &lt;/<span class="hljs-name">button</span>&gt;
+                      </span>
+                      <span class="hljs-tag">
+                        {"\n"}
+                        &lt;/<span class="hljs-name">li</span>&gt;
+                      </span>
+                      <span class="hljs-tag">
+                        {"\n"}
+                        &lt;<span class="hljs-name">li</span>&gt;
+                      </span>
+                      <span class="hljs-tag">
+                        {"\n"}
+                        &lt;<span class="hljs-name">a</span>{" "}
+                        <span class="hljs-attr">href</span>=
+                        <span class="hljs-string">"#"</span>{" "}
+                        <span class="hljs-attr">class</span>=
+                        <span class="hljs-string">
+                          "block py-2 px-3 text-gray-900 rounded
+                          hover:bg-gray-100 md:hover:bg-transparent md:border-0
+                          md:hover:text-blue-700 md:p-0 dark:text-white
+                          md:dark:hover:text-blue-500 dark:hover:bg-gray-700
+                          dark:hover:text-white md:dark:hover:bg-transparent"
+                        </span>
+                        &gt;
+                      </span>
+                      Services
+                      <span class="hljs-tag">
+                        {"\n"}
+                        &lt;/<span class="hljs-name">a</span>&gt;
+                      </span>
+                      <span class="hljs-tag">
+                        {"\n"}
+                        &lt;/<span class="hljs-name">li</span>&gt;
+                      </span>
+                      <span class="hljs-tag">
+                        {"\n"}
+                        &lt;/<span class="hljs-name">ul</span>&gt;
+                      </span>
+                      <span class="hljs-tag">
+                        {"\n"}
+                        &lt;/<span class="hljs-name">div</span>&gt;
+                      </span>
+                      <span class="hljs-tag">
+                        {"\n"}
+                        &lt;/<span class="hljs-name">div</span>&gt;
+                      </span>
+                      <span class="hljs-tag">
+                        {"\n"}
+                        &lt;/<span class="hljs-name">nav</span>&gt;
+                      </span>
+                    </pre>
+                  </div>
+                </div>
+              </div>
+            </section>
+            {/*with dropdown*/}
+            <section className="mt-10">
+              <div>
+                <h4 className="text-pink-600 font-bold text-xl">
+                  With Dropdowns
+                </h4>
+                <p className="dark:text-white">
+                  Below given example displays navbar with dropdown menu.
+                </p>
+              </div>
+              {/* box */}
+              <div className="bg-white shadow-md rounded-lg mt-8">
+                <div className="flex bg-gray-100 rounded justify-between border-b p-4">
+                  <button className="flex rounded-lg bg-white px-2 py-1 items-center space-x-2 text-gray-600 hover:text-gray-800">
+                    <img
+                      src="https://img.icons8.com/ios-glyphs/24/github.png"
+                      alt="GitHub Icon"
+                    />
+                    <small>Edit on GitHub</small>
+                  </button>
+                  <button className="text-gray-600 hover:text-gray-800">
+                    <i className="fa-solid fa-circle-half-stroke" />
+                  </button>
+                </div>
+                {/* nav2 */}
+                <div class="bg-white-100 p-5">
+                  <nav class="shadow-md bg-white rounded-lg border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+                    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+                      <a
+                        href="#"
+                        class="flex items-center space-x-3 rtl:space-x-reverse"
+                      >
+                        <img
+                          class="w-auto h-[25px]"
+                          src="../img/3.png"
+                          alt=""
+                        />{" "}
+                      </a>
+                      <button
+                        id="mobile-menu-toggle"
+                        type="button"
+                        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                      >
+                        <span class="sr-only">Open main menu</span>
+                        <svg
+                          class="w-5 h-5"
+                          aria-hidden="true"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 17 14"
+                        >
+                          <path
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M1 1h15M1 7h15M1 13h15"
+                          ></path>
+                        </svg>
+                      </button>
+                      <div
+                        id="navbar-dropdown"
+                        class="hidden w-full md:block md:w-auto"
+                      >
+                        <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                          <li>
+                            <a
+                              href="#"
+                              class="py-2 px-3 text-black rounded md:bg-transparent md:p-0"
+                            >
+                              Home
+                            </a>
+                          </li>
+                          <li class="relative">
+                            <button
+                              id="dropdownNavbarLink"
+                              class="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
+                            >
+                              {" "}
+                              Product
+                              <svg
+                                class="w-2.5 h-2.5 ms-2.5"
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 10 6"
+                              >
+                                <path
+                                  stroke="currentColor"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="m1 1 4 4 4-4"
+                                ></path>
+                              </svg>
+                            </button>
+                            <div
+                              id="dropdownNavbar"
+                              class="hidden absolute left-0 mt-2 z-10 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
+                            >
+                              <ul class="py-2 text-sm text-gray-700 dark:text-gray-400">
+                                <li>
+                                  <a
+                                    href="#"
+                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                                  >
+                                    Dashboard
+                                  </a>
+                                </li>
+                                <li>
+                                  <a
+                                    href="#"
+                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                                  >
+                                    Settings
+                                  </a>
+                                </li>
+                                <li>
+                                  <a
+                                    href="#"
+                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                                  >
+                                    Earnings
+                                  </a>
+                                </li>
+                              </ul>
+                              <div class="py-1">
+                                <a
+                                  href="#"
+                                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                                >
+                                  Sign out
+                                </a>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                            >
+                              Services
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </nav>
+                </div>
+                <div className="bg-white rounded-lg shadow-sm">
+                  <div className="bg-gray-300 flex justify-between items-center px-4 py-2 border-b border-gray-300">
+                    <span className="text-black font-medium">HTML</span>
+                    <button className="flex items-center space-x-3 text-black hover:text-gray-800 ">
+                      <i className="far fa-copy" />
+                      <span>Copy</span>
+                    </button>
+                  </div>
+                  {/* code tailwind for each button */}
+                  <div className="overflow-x-auto bg-gray-100 p-2 rounded-md">
+                    <pre className="theme-base16-materia-min shadow-3xl text-xs relative overflow-hidden max-w-full tab-size h-full">
+                      <span class="hljs mb-0 p-4 block min-h-full overflow-auto">
+                        <code>
+                          <span class="hljs-tag">
+                            &lt;<span class="hljs-name">div</span>{" "}
+                            <span class="hljs-attr">class</span>=
+                            <span class="hljs-string">"bg-white-100 p-5"</span>
+                            &gt;
+                          </span>
+                          {"\n"}
+                          <span class="hljs-tag">
+                            &lt;<span class="hljs-name">nav</span>{" "}
+                            <span class="hljs-attr">class</span>=
+                            <span class="hljs-string">
+                              "shadow-md bg-white rounded-lg border-gray-200
+                              dark:bg-gray-900 dark:border-gray-700"
+                            </span>
+                            &gt;
+                          </span>
+                          {"\n"}
+                          <span class="hljs-tag">
+                            &lt;<span class="hljs-name">div</span>{" "}
+                            <span class="hljs-attr">class</span>=
+                            <span class="hljs-string">
+                              "max-w-screen-xl flex flex-wrap items-center
+                              justify-between mx-auto p-4"
+                            </span>
+                            &gt;
+                          </span>
+                          {"\n"}
+                          <span class="hljs-tag">
+                            &lt;<span class="hljs-name">a</span>{" "}
+                            <span class="hljs-attr">href</span>=
+                            <span class="hljs-string">"#"</span>{" "}
+                            <span class="hljs-attr">class</span>=
+                            <span class="hljs-string">
+                              "flex items-center space-x-3 rtl:space-x-reverse"
+                            </span>
+                            &gt;
+                          </span>
+                          {"\n"}
+                          <span class="hljs-tag">
+                            &lt;<span class="hljs-name">img</span>{" "}
+                            <span class="hljs-attr">class</span>=
+                            <span class="hljs-string">"w-auto h-[25px]"</span>{" "}
+                            <span class="hljs-attr">src</span>=
+                            <span class="hljs-string">"../img/3.png"</span>{" "}
+                            <span class="hljs-attr">alt</span>=
+                            <span class="hljs-string">""</span>&gt;
+                          </span>{" "}
+                          <span class="hljs-tag">
+                            &lt;/<span class="hljs-name">a</span>&gt;
+                          </span>
+                          <span class="hljs-tag">
+                            {"\n"}
+                            &lt;<span class="hljs-name">button</span>{" "}
+                            <span class="hljs-attr">id</span>=
+                            <span class="hljs-string">
+                              "mobile-menu-toggle"
+                            </span>{" "}
+                            <span class="hljs-attr">type</span>=
+                            <span class="hljs-string">"button"</span>{" "}
+                            <span class="hljs-attr">class</span>=
+                            <span class="hljs-string">
+                              "inline-flex items-center p-2 w-10 h-10
+                              justify-center text-sm text-gray-500 rounded-lg
+                              md:hidden hover:bg-gray-100 focus:outline-none
+                              focus:ring-2 focus:ring-gray-200
+                              dark:text-gray-400 dark:hover:bg-gray-700
+                              dark:focus:ring-gray-600"
+                            </span>
+                            &gt;
+                          </span>
+                          <span class="hljs-tag">
+                            {"\n"}
+                            &lt;<span class="hljs-name">span</span>{" "}
+                            <span class="hljs-attr">class</span>=
+                            <span class="hljs-string">"sr-only"</span>&gt;
+                          </span>
+                          Open main menu
+                          <span class="hljs-tag">
+                            &lt;/<span class="hljs-name">span</span>&gt;
+                          </span>
+                          <span class="hljs-tag">
+                            {"\n"}
+                            &lt;<span class="hljs-name">svg</span>{" "}
+                            <span class="hljs-attr">class</span>=
+                            <span class="hljs-string">"w-5 h-5"</span>{" "}
+                            <span class="hljs-attr">aria-hidden</span>=
+                            <span class="hljs-string">"true"</span>{" "}
+                            <span class="hljs-attr">xmlns</span>=
+                            <span class="hljs-string">
+                              "http://www.w3.org/2000/svg"
+                            </span>{" "}
+                            <span class="hljs-attr">fill</span>=
+                            <span class="hljs-string">"none"</span>{" "}
+                            <span class="hljs-attr">viewBox</span>=
+                            <span class="hljs-string">"0 0 17 14"</span>&gt;
+                          </span>
+                          <span class="hljs-tag">
+                            {"\n"}
+                            &lt;<span class="hljs-name">path</span>{" "}
+                            <span class="hljs-attr">stroke</span>=
+                            <span class="hljs-string">"currentColor"</span>{" "}
+                            <span class="hljs-attr">stroke-linecap</span>=
+                            <span class="hljs-string">"round"</span>{" "}
+                            <span class="hljs-attr">stroke-linejoin</span>=
+                            <span class="hljs-string">"round"</span>{" "}
+                            <span class="hljs-attr">stroke-width</span>=
+                            <span class="hljs-string">"2"</span>{" "}
+                            <span class="hljs-attr">d</span>=
+                            <span class="hljs-string">
+                              "M1 1h15M1 7h15M1 13h15"
+                            </span>
+                            /&gt;
+                          </span>
+                          <span class="hljs-tag">
+                            &lt;/<span class="hljs-name">svg</span>&gt;
+                          </span>
+                          <span class="hljs-tag">
+                            {"\n"}
+                            &lt;/<span class="hljs-name">button</span>&gt;
+                          </span>
+                          <span class="hljs-tag">
+                            {"\n"}
+                            &lt;<span class="hljs-name">div</span>{" "}
+                            <span class="hljs-attr">id</span>=
+                            <span class="hljs-string">"navbar-dropdown"</span>{" "}
+                            <span class="hljs-attr">class</span>=
+                            <span class="hljs-string">
+                              "hidden w-full md:block md:w-auto"
+                            </span>
+                            &gt;
+                          </span>
+                          <span class="hljs-tag">
+                            {"\n"}
+                            &lt;<span class="hljs-name">ul</span>{" "}
+                            <span class="hljs-attr">class</span>=
+                            <span class="hljs-string">
+                              "flex flex-col font-medium p-4 md:p-0 mt-4 border
+                              border-gray-100 rounded-lg bg-gray-50 md:space-x-8
+                              rtl:space-x-reverse md:flex-row md:mt-0
+                              md:border-0 md:bg-white dark:bg-gray-800
+                              md:dark:bg-gray-900 dark:border-gray-700"
+                            </span>
+                            &gt;
+                          </span>
+                          <span class="hljs-tag">
+                            {"\n"}
+                            &lt;<span class="hljs-name">li</span>&gt;
+                          </span>
+                          <span class="hljs-tag">
+                            {"\n"}
+                            &lt;<span class="hljs-name">a</span>{" "}
+                            <span class="hljs-attr">href</span>=
+                            <span class="hljs-string">"#"</span>{" "}
+                            <span class="hljs-attr">class</span>=
+                            <span class="hljs-string">
+                              "py-2 px-3 text-black rounded md:bg-transparent
+                              md:p-0"
+                            </span>
+                            &gt;
+                          </span>
+                          Home
+                          <span class="hljs-tag">
+                            &lt;/<span class="hljs-name">a</span>&gt;
+                          </span>
+                          <span class="hljs-tag">
+                            &lt;/<span class="hljs-name">li</span>&gt;
+                          </span>
+                          <span class="hljs-tag">
+                            {"\n"}
+                            &lt;<span class="hljs-name">li</span>{" "}
+                            <span class="hljs-attr">class</span>=
+                            <span class="hljs-string">"relative"</span>&gt;
+                          </span>
+                          <span class="hljs-tag">
+                            {"\n"}
+                            &lt;<span class="hljs-name">button</span>{" "}
+                            <span class="hljs-attr">id</span>=
+                            <span class="hljs-string">
+                              "dropdownNavbarLink"
+                            </span>{" "}
+                            <span class="hljs-attr">class</span>=
+                            <span class="hljs-string">
+                              "flex items-center justify-between w-full py-2
+                              px-3 text-gray-900 rounded hover:bg-gray-100
+                              md:hover:bg-transparent md:border-0
+                              md:hover:text-blue-700 md:p-0 md:w-auto
+                              dark:text-white md:dark:hover:text-blue-500
+                              dark:focus:text-white dark:border-gray-700
+                              dark:hover:bg-gray-700
+                              md:dark:hover:bg-transparent"
+                            </span>
+                            &gt;
+                          </span>{" "}
+                          Product
+                          <span class="hljs-tag">
+                            &lt;<span class="hljs-name">svg</span>{" "}
+                            <span class="hljs-attr">class</span>=
+                            <span class="hljs-string">
+                              "w-2.5 h-2.5 ms-2.5"
+                            </span>{" "}
+                            <span class="hljs-attr">aria-hidden</span>=
+                            <span class="hljs-string">"true"</span>{" "}
+                            <span class="hljs-attr">xmlns</span>=
+                            <span class="hljs-string">
+                              "http://www.w3.org/2000/svg"
+                            </span>{" "}
+                            <span class="hljs-attr">fill</span>=
+                            <span class="hljs-string">"none"</span>{" "}
+                            <span class="hljs-attr">viewBox</span>=
+                            <span class="hljs-string">"0 0 10 6"</span>&gt;
+                          </span>
+                          <span class="hljs-tag">
+                            &lt;<span class="hljs-name">path</span>{" "}
+                            <span class="hljs-attr">stroke</span>=
+                            <span class="hljs-string">"currentColor"</span>{" "}
+                            <span class="hljs-attr">stroke-linecap</span>=
+                            <span class="hljs-string">"round"</span>{" "}
+                            <span class="hljs-attr">stroke-linejoin</span>=
+                            <span class="hljs-string">"round"</span>{" "}
+                            <span class="hljs-attr">stroke-width</span>=
+                            <span class="hljs-string">"2"</span>{" "}
+                            <span class="hljs-attr">d</span>=
+                            <span class="hljs-string">"m1 1 4 4 4-4"</span>/&gt;
+                          </span>
+                          <span class="hljs-tag">
+                            &lt;/<span class="hljs-name">svg</span>&gt;
+                          </span>
+                          <span class="hljs-tag">
+                            &lt;/<span class="hljs-name">button</span>&gt;
+                          </span>
+                          <span class="hljs-tag">
+                            &lt;<span class="hljs-name">div</span>{" "}
+                            <span class="hljs-attr">id</span>=
+                            <span class="hljs-string">"dropdownNavbar"</span>{" "}
+                            <span class="hljs-attr">class</span>=
+                            <span class="hljs-string">
+                              "hidden absolute left-0 mt-2 z-10 font-normal
+                              bg-white divide-y divide-gray-100 rounded-lg
+                              shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
+                            </span>
+                            &gt;
+                          </span>
+                          <span class="hljs-tag">
+                            &lt;<span class="hljs-name">ul</span>{" "}
+                            <span class="hljs-attr">class</span>=
+                            <span class="hljs-string">
+                              "py-2 text-sm text-gray-700 dark:text-gray-400"
+                            </span>
+                            &gt;
+                          </span>
+                          <span class="hljs-tag">
+                            &lt;<span class="hljs-name">li</span>&gt;
+                          </span>
+                          <span class="hljs-tag">
+                            &lt;<span class="hljs-name">a</span>{" "}
+                            <span class="hljs-attr">href</span>=
+                            <span class="hljs-string">"#"</span>{" "}
+                            <span class="hljs-attr">class</span>=
+                            <span class="hljs-string">
+                              "block px-4 py-2 hover:bg-gray-100
+                              dark:hover:bg-gray-600 dark:hover:text-white"
+                            </span>
+                            &gt;
+                          </span>
+                          Dashboard
+                          <span class="hljs-tag">
+                            &lt;/<span class="hljs-name">a</span>&gt;
+                          </span>
+                          <span class="hljs-tag">
+                            &lt;/<span class="hljs-name">li</span>&gt;
+                          </span>
+                          <span class="hljs-tag">
+                            &lt;<span class="hljs-name">li</span>&gt;
+                          </span>
+                          <span class="hljs-tag">
+                            &lt;<span class="hljs-name">a</span>{" "}
+                            <span class="hljs-attr">href</span>=
+                            <span class="hljs-string">"#"</span>{" "}
+                            <span class="hljs-attr">class</span>=
+                            <span class="hljs-string">
+                              "block px-4 py-2 hover:bg-gray-100
+                              dark:hover:bg-gray-600 dark:hover:text-white"
+                            </span>
+                            &gt;
+                          </span>
+                          Settings
+                          <span class="hljs-tag">
+                            &lt;/<span class="hljs-name">a</span>&gt;
+                          </span>
+                          <span class="hljs-tag">
+                            &lt;/<span class="hljs-name">li</span>&gt;
+                          </span>
+                          <span class="hljs-tag">
+                            &lt;<span class="hljs-name">li</span>&gt;
+                          </span>
+                          <span class="hljs-tag">
+                            &lt;<span class="hljs-name">a</span>{" "}
+                            <span class="hljs-attr">href</span>=
+                            <span class="hljs-string">"#"</span>{" "}
+                            <span class="hljs-attr">class</span>=
+                            <span class="hljs-string">
+                              "block px-4 py-2 hover:bg-gray-100
+                              dark:hover:bg-gray-600 dark:hover:text-white"
+                            </span>
+                            &gt;
+                          </span>
+                          Earnings
+                          <span class="hljs-tag">
+                            &lt;/<span class="hljs-name">a</span>&gt;
+                          </span>
+                          <span class="hljs-tag">
+                            &lt;/<span class="hljs-name">li</span>&gt;
+                          </span>
+                          <span class="hljs-tag">
+                            &lt;/<span class="hljs-name">ul</span>&gt;
+                          </span>
+                          <span class="hljs-tag">
+                            &lt;<span class="hljs-name">div</span>{" "}
+                            <span class="hljs-attr">class</span>=
+                            <span class="hljs-string">"py-1"</span>&gt;
+                          </span>
+                          <span class="hljs-tag">
+                            &lt;<span class="hljs-name">a</span>{" "}
+                            <span class="hljs-attr">href</span>=
+                            <span class="hljs-string">"#"</span>{" "}
+                            <span class="hljs-attr">class</span>=
+                            <span class="hljs-string">
+                              "block px-4 py-2 text-sm text-gray-700
+                              hover:bg-gray-100 dark:hover:bg-gray-600
+                              dark:text-gray-200 dark:hover:text-white"
+                            </span>
+                            &gt;
+                          </span>
+                          Sign out
+                          <span class="hljs-tag">
+                            &lt;/<span class="hljs-name">a</span>&gt;
+                          </span>
+                          <span class="hljs-tag">
+                            &lt;/<span class="hljs-name">div</span>&gt;
+                          </span>
+                          <span class="hljs-tag">
+                            &lt;/<span class="hljs-name">div</span>&gt;
+                          </span>
+                          <span class="hljs-tag">
+                            &lt;/<span class="hljs-name">li</span>&gt;
+                          </span>
+                          <span class="hljs-tag">
+                            &lt;<span class="hljs-name">li</span>&gt;
+                          </span>
+                          <span class="hljs-tag">
+                            &lt;<span class="hljs-name">a</span>{" "}
+                            <span class="hljs-attr">href</span>=
+                            <span class="hljs-string">"#"</span>{" "}
+                            <span class="hljs-attr">class</span>=
+                            <span class="hljs-string">
+                              "block py-2 px-3 text-gray-900 rounded
+                              hover:bg-gray-100 md:hover:bg-transparent
+                              md:border-0 md:hover:text-blue-700 md:p-0
+                              dark:text-white md:dark:hover:text-blue-500
+                              dark:hover:bg-gray-700 dark:hover:text-white
+                              md:dark:hover:bg-transparent"
+                            </span>
+                            &gt;
+                          </span>
+                          Services
+                          <span class="hljs-tag">
+                            &lt;/<span class="hljs-name">a</span>&gt;
+                          </span>
+                          <span class="hljs-tag">
+                            &lt;/<span class="hljs-name">li</span>&gt;
+                          </span>
+                          <span class="hljs-tag">
+                            &lt;/<span class="hljs-name">ul</span>&gt;
+                          </span>
+                          <span class="hljs-tag">
+                            &lt;/<span class="hljs-name">div</span>&gt;
+                          </span>
+                          <span class="hljs-tag">
+                            &lt;/<span class="hljs-name">div</span>&gt;
+                          </span>
+                          <span class="hljs-tag">
+                            &lt;/<span class="hljs-name">nav</span>&gt;
+                          </span>
+                        </code>
+                      </span>
+                    </pre>
+                    <code></code>
+                  </div>
+                </div>
+              </div>
+            </section>
+            {/*nav3*/}
+            <section className="mt-10">
+              <div>
+                <h4 className="text-pink-600 font-bold text-xl">
+                  With Indelicate avata
+                </h4>
+                <p className="dark:text-white">
+                  Below given example displays navbar with notifications
+                  indicator
+                </p>
+              </div>
+              {/* box put button */}
+              <div className="bg-white shadow-md rounded-lg mt-8">
+                {/* head box */}
+                <div className="flex bg-gray-100 rounded justify-between border-b p-4">
+                  <button className="flex rounded-lg bg-white px-2 py-1 items-center space-x-2 text-gray-600 hover:text-gray-800">
+                    <img
+                      src="https://img.icons8.com/ios-glyphs/24/github.png"
+                      alt="GitHub Icon"
+                    />
+                    <small>Edit on GitHub</small>
+                  </button>
+                  <button className="text-gray-600 hover:text-gray-800">
+                    <i className="fa-solid fa-circle-half-stroke" />
+                  </button>
+                </div>
+                {/* nav3 */}
+                <div class="bg-white-100 p-5">
+                  <nav class="shadow-md bg-white  rounded-lg dark:bg-gray-900">
+                    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+                      <a
+                        href="https://flowbite.com/"
+                        class="flex items-center space-x-3 rtl:space-x-reverse"
+                      >
+                        <img
+                          class="w-auto h-[25px]"
+                          src="../img/3.png"
+                          alt=""
+                        />{" "}
+                      </a>
+                      <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+                        <i class="fa-regular fa-bell pr-6"></i>
+                        <button
+                          type="button"
+                          class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                          id="user-menu-button"
+                          aria-expanded="false"
+                          data-dropdown-toggle="user-dropdown"
+                          data-dropdown-placement="bottom"
+                        >
+                          <img
+                            class="w-8 h-8 rounded-full"
+                            src="https://i.pinimg.com/736x/eb/18/76/eb187655090227af25866572f615b426.jpg"
+                            alt="user photo"
+                          />
+                        </button>
+                        <button
+                          data-collapse-toggle="navbar-user"
+                          type="button"
+                          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                          aria-controls="navbar-user"
+                          aria-expanded="false"
+                        >
+                          <svg
+                            class="w-5 h-5"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 17 14"
+                          >
+                            <path
+                              stroke="currentColor"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M1 1h15M1 7h15M1 13h15"
+                            ></path>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </nav>
+                </div>
+
+                <div className="bg-white rounded-lg shadow-sm">
+                  <div className="bg-gray-300 flex justify-between items-center px-4 py-2 border-b border-gray-300">
+                    <span className="text-black font-medium">HTML</span>
+                    <button className="flex items-center space-x-3 text-black hover:text-gray-800 ">
+                      <i className="far fa-copy" />
+                      <span>Copy</span>
+                    </button>
+                  </div>
+                  {/* code tailwind for each button */}
+                  <div className="overflow-x-auto bg-gray-100 p-2 rounded-md">
+                    <pre className="!overflow-visible text-xs">
+                      {""}
+                      <span class="hljs-tag">
+                        &lt;<span class="hljs-name">div</span>{" "}
+                        <span class="hljs-attr">class</span>=
+                        <span class="hljs-string">"bg-white-100 p-5"</span>&gt;
+                      </span>
+                      <br />
+                      &nbsp;&nbsp;
+                      <span class="hljs-tag">
+                        &lt;<span class="hljs-name">nav</span>{" "}
+                        <span class="hljs-attr">class</span>=
+                        <span class="hljs-string">
+                          "shadow-md bg-white rounded-lg dark:bg-gray-900"
+                        </span>
+                        &gt;
+                      </span>
+                      <br />
+                      &nbsp;&nbsp;&nbsp;&nbsp;
+                      <span class="hljs-tag">
+                        &lt;<span class="hljs-name">div</span>{" "}
+                        <span class="hljs-attr">class</span>=
+                        <span class="hljs-string">
+                          "max-w-screen-xl flex flex-wrap items-center
+                          justify-between mx-auto p-4"
+                        </span>
+                        &gt;
+                      </span>
+                      <br />
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <span class="hljs-tag">
+                        &lt;<span class="hljs-name">a</span>{" "}
+                        <span class="hljs-attr">href</span>=
+                        <span class="hljs-string">"https://flowbite.com/"</span>{" "}
+                        <span class="hljs-attr">class</span>=
+                        <span class="hljs-string">
+                          "flex items-center space-x-3 rtl:space-x-reverse"
+                        </span>
+                        &gt;
+                      </span>
+                      <br />
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <span class="hljs-tag">
+                        &lt;<span class="hljs-name">img</span>{" "}
+                        <span class="hljs-attr">class</span>=
+                        <span class="hljs-string">"w-auto h-[25px]"</span>{" "}
+                        <span class="hljs-attr">src</span>=
+                        <span class="hljs-string">"../img/3.png"</span>{" "}
+                        <span class="hljs-attr">alt</span>=
+                        <span class="hljs-string">""</span>/&gt;
+                      </span>
+                      <br />
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <span class="hljs-tag">
+                        &lt;/<span class="hljs-name">a</span>&gt;
+                      </span>
+                      <br />
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <span class="hljs-tag">
+                        &lt;<span class="hljs-name">div</span>{" "}
+                        <span class="hljs-attr">class</span>=
+                        <span class="hljs-string">
+                          "flex items-center md:order-2 space-x-3 md:space-x-0
+                          rtl:space-x-reverse"
+                        </span>
+                        &gt;
+                      </span>
+                      <br />
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <span class="hljs-tag">
+                        &lt;<span class="hljs-name">i</span>{" "}
+                        <span class="hljs-attr">class</span>=
+                        <span class="hljs-string">
+                          "fa-regular fa-bell pr-6"
+                        </span>
+                        &gt;&lt;/<span class="hljs-name">i</span>&gt;
+                      </span>
+                      <br />
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <span class="hljs-tag">
+                        &lt;<span class="hljs-name">button</span>{" "}
+                        <span class="hljs-attr">type</span>=
+                        <span class="hljs-string">"button"</span>{" "}
+                        <span class="hljs-attr">class</span>=
+                        <span class="hljs-string">
+                          "flex text-sm bg-gray-800 rounded-full md:me-0
+                          focus:ring-4 focus:ring-gray-300
+                          dark:focus:ring-gray-600"
+                        </span>{" "}
+                        <span class="hljs-attr">id</span>=
+                        <span class="hljs-string">"user-menu-button"</span>{" "}
+                        <span class="hljs-attr">aria-expanded</span>=
+                        <span class="hljs-string">"false"</span>{" "}
+                        <span class="hljs-attr">data-dropdown-toggle</span>=
+                        <span class="hljs-string">"user-dropdown"</span>{" "}
+                        <span class="hljs-attr">data-dropdown-placement</span>=
+                        <span class="hljs-string">"bottom"</span>&gt;
+                      </span>
+                      <br />
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <span class="hljs-tag">
+                        &lt;<span class="hljs-name">img</span>{" "}
+                        <span class="hljs-attr">class</span>=
+                        <span class="hljs-string">"w-8 h-8 rounded-full"</span>{" "}
+                        <span class="hljs-attr">src</span>=
+                        <span class="hljs-string">
+                          "https://i.pinimg.com/736x/eb/18/76/eb187655090227af25866572f615b426.jpg"
+                        </span>{" "}
+                        <span class="hljs-attr">alt</span>=
+                        <span class="hljs-string">"user photo"</span>/&gt;
+                      </span>
+                      <br />
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <span class="hljs-tag">
+                        &lt;/<span class="hljs-name">button</span>&gt;
+                      </span>
+                      <br />
+                      &nbsp;&nbsp;&nbsp;&nbsp;
+                      <span class="hljs-tag">
+                        &lt;/<span class="hljs-name">div</span>&gt;
+                      </span>
+                      <br />
+                      &nbsp;&nbsp;&nbsp;&nbsp;
+                      <span class="hljs-tag">
+                        &lt;/<span class="hljs-name">div</span>&gt;
+                      </span>
+                      <br />
+                      <span class="hljs-tag">
+                        &lt;/<span class="hljs-name">nav</span>&gt;
+                      </span>
+                      <br />
+                      <span class="hljs-tag">
+                        &lt;/<span class="hljs-name">div</span>&gt;
+                      </span>
+                    </pre>
+                  </div>
+                </div>
+              </div>
+            </section>
+            {/* nav 4 */}
+            <section className="mt-10">
+              <div>
+                <h4 className="text-pink-600 font-bold text-xl">
+                  With center brand name
+                </h4>
+                <p className="dark:text-white">
+                  Below given example displays navbar with centered brand name.
+                </p>
+              </div>
+              {/* box put button */}
+              <div className="bg-white shadow-md rounded-lg mt-8">
+                {/* head box */}
+                <div className="flex bg-gray-100 rounded justify-between border-b p-4">
+                  <button className="flex rounded-lg bg-white px-2 py-1 items-center space-x-2 text-gray-600 hover:text-gray-800">
+                    <img
+                      src="https://img.icons8.com/ios-glyphs/24/github.png"
+                      alt="GitHub Icon"
+                    />
+                    <small>Edit on GitHub</small>
+                  </button>
+                  <button className="text-gray-600 hover:text-gray-800">
+                    <i className="fa-solid fa-circle-half-stroke" />
+                  </button>
+                </div>
+                {/* nav4 */}
+                <div className="bg-white-100 p-5">
+                  <nav class="shadow-md bg-white rounded-lg border-gray-200 dark:bg-gray-900 relative">
+                    <div class="max-w-screen-xl flex items-center justify-between mx-auto p-4">
+                      <div class="flex items-center">
+                        <span class="hidden md:block"></span>
+                      </div>
+                      <div class="absolute left-1/2 transform -translate-x-1/2">
+                        <img
+                          class="w-auto h-[25px]"
+                          src="../img/3.png"
+                          alt="Logo"
+                        />
+                      </div>
+
+                      <div class="flex items-center space-x-3 rtl:space-x-reverse">
+                        <button
+                          type="button"
+                          class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                          id="user-menu-button"
+                          aria-expanded="false"
+                          data-dropdown-toggle="user-dropdown"
+                          data-dropdown-placement="bottom"
+                        >
+                          <img
+                            class="w-8 h-8 rounded-full"
+                            src="https://i.pinimg.com/736x/eb/18/76/eb187655090227af25866572f615b426.jpg"
+                            alt="user photo"
+                          />
+                        </button>
+                        <button
+                          data-collapse-toggle="navbar-user"
+                          type="button"
+                          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                          aria-controls="navbar-user"
+                          aria-expanded="false"
+                        >
+                          <svg
+                            class="w-5 h-5"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 17 14"
+                          >
+                            <path
+                              stroke="currentColor"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M1 1h15M1 7h15M1 13h15"
+                            ></path>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </nav>
+                </div>
+
+                <div className="bg-white rounded-lg shadow-sm">
+                  <div className="bg-gray-300 flex justify-between items-center px-4 py-2 border-b border-gray-300">
+                    <span className="text-black font-medium">HTML</span>
+                    <button className="flex items-center space-x-3 text-black hover:text-gray-800 ">
+                      <i className="far fa-copy" />
+                      <span>Copy</span>
+                    </button>
+                  </div>
+                  {/* code tailwind for each button */}
+                  <div className="overflow-x-auto bg-gray-100 p-2 rounded-md">
+                    <pre className="!overflow-visible text-xs relative">
+                      <code>
+                        <span className="hljs-tag">
+                          &lt;<span className="hljs-name">div</span>{" "}
+                          <span className="hljs-attr">class</span>=
+                          <span className="hljs-string">
+                            "bg-white-100 p-5"
+                          </span>
+                          &gt;
+                        </span>
+                        <br />
+                        &nbsp;&nbsp;
+                        <span className="hljs-tag">
+                          &lt;<span className="hljs-name">nav</span>{" "}
+                          <span className="hljs-attr">class</span>=
+                          <span className="hljs-string">
+                            "shadow-md bg-white rounded-lg p-4 flex items-center
+                            justify-between"
+                          </span>
+                          &gt;
+                        </span>
+                        <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span className="hljs-tag">
+                          &lt;<span className="hljs-name">img</span>{" "}
+                          <span className="hljs-attr">class</span>=
+                          <span className="hljs-string">"w-auto h-[25px]"</span>{" "}
+                          <span className="hljs-attr">src</span>=
+                          <span className="hljs-string">"../img/3.png"</span>{" "}
+                          <span className="hljs-attr">alt</span>=
+                          <span className="hljs-string">""</span>/&gt;
+                        </span>
+                        <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span className="hljs-tag">
+                          &lt;<span className="hljs-name">div</span>{" "}
+                          <span className="hljs-attr">class</span>=
+                          <span className="hljs-string">
+                            "flex items-center md:space-x-5 lg:space-x-5"
+                          </span>
+                          &gt;
+                        </span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span className="hljs-tag">
+                          &lt;<span className="hljs-name">input</span>{" "}
+                          <span className="hljs-attr">type</span>=
+                          <span className="hljs-string">"text"</span>{" "}
+                          <span className="hljs-attr">class</span>=
+                          <span className="hljs-string">
+                            "ps-8 p-2 text-sm text-gray-900 border
+                            border-gray-300 rounded-full bg-gray-50
+                            focus:ring-blue-500 focus:border-blue-500"
+                          </span>{" "}
+                          <span className="hljs-attr">placeholder</span>=
+                          <span className="hljs-string">"Search"</span>/&gt;
+                        </span>
+                        <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span className="hljs-tag">
+                          &lt;<span className="hljs-name">img</span>{" "}
+                          <span className="hljs-attr">class</span>=
+                          <span className="hljs-string">
+                            "w-10 h-10 rounded-full"
+                          </span>{" "}
+                          <span className="hljs-attr">src</span>=
+                          <span className="hljs-string">
+                            "https://i.pinimg.com/736x/eb/18/76/eb187655090227af25866572f615b426.jpg"
+                          </span>{" "}
+                          <span className="hljs-attr">alt</span>=
+                          <span className="hljs-string">"User Profile"</span>
+                          /&gt;
+                        </span>
+                        <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span className="hljs-tag">
+                          &lt;/<span className="hljs-name">div</span>&gt;
+                        </span>
+                        <br />
+                        &nbsp;&nbsp;
+                        <span className="hljs-tag">
+                          &lt;/<span className="hljs-name">nav</span>&gt;
+                        </span>
+                        <br />
+                        <span className="hljs-tag">
+                          &lt;/<span className="hljs-name">div</span>&gt;
+                        </span>
+                        <br />
+                        <span className="hljs-tag">
+                          &lt;/<span className="hljs-name">div</span>&gt;
+                        </span>
+                      </code>
+                    </pre>
+                  </div>
+                </div>
+              </div>
+            </section>
+            {/* nav6*/}
+            <section className="mt-10">
+              <div>
+                <h4 className="text-pink-600 font-bold text-xl">
+                  With search solid background
+                </h4>
+                <p className="dark:text-white">Below given example.</p>
+              </div>
+              {/* box put button */}
+              <div className="bg-white shadow-md rounded-lg mt-8">
+                {/* head box */}
+                <div className="flex bg-gray-100 rounded justify-between border-b p-4">
+                  <button className="flex rounded-lg bg-white px-2 py-1 items-center space-x-2 text-gray-600 hover:text-gray-800">
+                    <img
+                      src="https://img.icons8.com/ios-glyphs/24/github.png"
+                      alt="GitHub Icon"
+                    />
+                    <small>Edit on GitHub</small>
+                  </button>
+                  <button className="text-gray-600 hover:text-gray-800">
+                    <i className="fa-solid fa-circle-half-stroke" />
+                  </button>
+                </div>
+                {/* nav6 */}
+                <div class="bg-white-100 p-5">
+                  <nav class=" bg-pink-400 shadow-md rounded-lg border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+                    <div class="  flex flex-wrap items-center justify-between mx-auto p-4">
+                      <a
+                        href="#"
+                        class="flex items-center space-x-3 rtl:space-x-reverse"
+                      >
+                        <img
+                          class="w-auto h-[25px]"
+                          src="../img/logo_fordarkmood.png"
+                          alt=""
+                        />
+                      </a>
+                      <button
+                        id="mobile-menu-toggle"
+                        type="button"
+                        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                      >
+                        <span class="sr-only">Open main menu</span>
+                        <svg
+                          class="w-5 h-5"
+                          aria-hidden="true"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 17 14"
+                        >
+                          <path
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M1 1h15M1 7h15M1 13h15"
+                          ></path>
+                        </svg>
+                      </button>
+                      <div
+                        id="navbar-dropdown"
+                        class="hidden w-full md:block md:w-auto"
+                      >
+                        <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 dark text-white ">
+                          <li>
+                            <a
+                              href="#"
+                              class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                            >
+                              Home
+                            </a>
+                          </li>
+                          <li class="relative">
+                            <button
+                              id="dropdownNavbarLink"
+                              class="flex items-center justify-between w-full py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
+                            >
+                              Contact us
+                            </button>
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                            >
+                              Services
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </nav>
+                </div>
+
+                <div className="bg-white rounded-lg shadow-sm">
+                  <div className="bg-gray-300 flex justify-between items-center px-4 py-2 border-b border-gray-300">
+                    <span className="text-black font-medium">HTML</span>
+                    <button className="flex items-center space-x-3 text-black hover:text-gray-800 ">
+                      <i className="far fa-copy" />
+                      <span>Copy</span>
+                    </button>
+                  </div>
+                  {/* code tailwind for each button */}
+                  <div className="overflow-x-auto bg-gray-100 p-2 rounded-md">
+                    <pre className="!overflow-visible text-xs relative">
+                      <code>
+                        <span className="hljs-tag">
+                          &lt;<span className="hljs-name">div</span>{" "}
+                          <span className="hljs-attr">class</span>=
+                          <span className="hljs-string">
+                            "bg-white-100 p-5"
+                          </span>
+                          &gt;
+                        </span>
+                        <br />
+                        &nbsp;&nbsp;
+                        <span className="hljs-tag">
+                          &lt;<span className="hljs-name">nav</span>{" "}
+                          <span className="hljs-attr">class</span>=
+                          <span className="hljs-string">
+                            "shadow-md bg-white rounded-lg p-4 flex items-center
+                            justify-between"
+                          </span>
+                          &gt;
+                        </span>
+                        <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span className="hljs-tag">
+                          &lt;<span className="hljs-name">img</span>{" "}
+                          <span className="hljs-attr">class</span>=
+                          <span className="hljs-string">"w-auto h-[25px]"</span>{" "}
+                          <span className="hljs-attr">src</span>=
+                          <span className="hljs-string">"../img/3.png"</span>{" "}
+                          <span className="hljs-attr">alt</span>=
+                          <span className="hljs-string">""</span>/&gt;
+                        </span>
+                        <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span className="hljs-comment">
+                          &lt;!-- Search Bar and Profile Section --&gt;
+                        </span>
+                        <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span className="hljs-tag">
+                          &lt;<span className="hljs-name">div</span>{" "}
+                          <span className="hljs-attr">class</span>=
+                          <span className="hljs-string">
+                            "flex items-center md:space-x-5 lg:space-x-5"
+                          </span>
+                          &gt;
+                        </span>
+                        <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span className="hljs-comment">
+                          &lt;!-- Search Bar --&gt;
+                        </span>
+                        <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span className="hljs-tag">
+                          &lt;<span className="hljs-name">input</span>{" "}
+                          <span className="hljs-attr">type</span>=
+                          <span className="hljs-string">"text"</span>{" "}
+                          <span className="hljs-attr">class</span>=
+                          <span className="hljs-string">
+                            "ps-8 p-2 text-sm text-gray-900 border
+                            border-gray-300 rounded-full bg-gray-50
+                            focus:ring-blue-500 focus:border-blue-500"
+                          </span>{" "}
+                          <span className="hljs-attr">placeholder</span>=
+                          <span className="hljs-string">"Search"</span>/&gt;
+                        </span>
+                        <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span className="hljs-tag">
+                          &lt;<span className="hljs-name">img</span>{" "}
+                          <span className="hljs-attr">class</span>=
+                          <span className="hljs-string">
+                            "w-10 h-10 rounded-full"
+                          </span>{" "}
+                          <span className="hljs-attr">src</span>=
+                          <span className="hljs-string">
+                            "https://i.pinimg.com/736x/eb/18/76/eb187655090227af25866572f615b426.jpg"
+                          </span>{" "}
+                          <span className="hljs-attr">alt</span>=
+                          <span className="hljs-string">"User Profile"</span>
+                          /&gt;
+                        </span>
+                        <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span className="hljs-tag">
+                          &lt;/<span className="hljs-name">div</span>&gt;
+                        </span>
+                        <br />
+                        &nbsp;&nbsp;
+                        <span className="hljs-tag">
+                          &lt;/<span className="hljs-name">nav</span>&gt;
+                        </span>
+                        <br />
+                        <span className="hljs-tag">
+                          &lt;/<span className="hljs-name">div</span>&gt;
+                        </span>
+                        <br />
+                        <span className="hljs-tag">
+                          &lt;/<span className="hljs-name">div</span>&gt;
+                        </span>
+                      </code>
+                    </pre>
+                  </div>
+                </div>
+              </div>
+            </section>
+            {/* nav5 */}
+            <section className="mt-10">
+              <div>
+                <h4 className="text-pink-600 font-bold text-xl">with search</h4>
+                <p className="dark:text-white">
+                  Below given example displays navbar with search input.
+                </p>
+              </div>
+              {/* box put button */}
+              <div className="bg-white shadow-md rounded-lg mt-8">
+                {/* head box */}
+                <div className="flex bg-gray-100 rounded justify-between border-b p-4">
+                  <button className="flex rounded-lg bg-white px-2 py-1 items-center space-x-2 text-gray-600 hover:text-gray-800">
+                    <img
+                      src="https://img.icons8.com/ios-glyphs/24/github.png"
+                      alt="GitHub Icon"
+                    />
+                    <small>Edit on GitHub</small>
+                  </button>
+                  <button className="text-gray-600 hover:text-gray-800">
+                    <i className="fa-solid fa-circle-half-stroke" />
+                  </button>
+                </div>
+                {/* nav5 */}
+                <div class="bg-white-100 p-5">
+                  <nav class="shadow-md bg-white rounded-lg p-4 flex items-center justify-between">
+                    <img class="w-auto h-[25px]" src="../img/3.png" alt="" />
+                    <div class="flex items-center md:space-x-5 lg:space-x-5">
+                      <input
+                        type="text"
+                        class="ps-8 p-2 text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
+                        placeholder="Search"
+                      />
+                      <img
+                        class="w-10 h-10 rounded-full"
+                        src="https://i.pinimg.com/736x/eb/18/76/eb187655090227af25866572f615b426.jpg"
+                        alt="User Profile"
+                      />
+                    </div>
+                  </nav>
+                </div>
+
+                <div className="bg-white rounded-lg shadow-sm">
+                  <div className="bg-gray-300 flex justify-between items-center px-4 py-2 border-b border-gray-300">
+                    <span className="text-black font-medium">HTML</span>
+                    <button className="flex items-center space-x-3 text-black hover:text-gray-800 ">
+                      <i className="far fa-copy" />
+                      <span>Copy</span>
+                    </button>
+                  </div>
+                  {/* code tailwind for each button */}
+                  <div className="overflow-x-auto bg-gray-100 p-2 rounded-md">
+                    <pre className="!overflow-visible text-xs relative">
+                      <code>
+                        <span className="hljs-tag">
+                          &lt;<span className="hljs-name">div</span>{" "}
+                          <span className="hljs-attr">class</span>=
+                          <span className="hljs-string">
+                            "bg-white-100 p-5"
+                          </span>
+                          &gt;
+                        </span>
+                        <br />
+                        &nbsp;&nbsp;
+                        <span className="hljs-tag">
+                          &lt;<span className="hljs-name">nav</span>{" "}
+                          <span className="hljs-attr">class</span>=
+                          <span className="hljs-string">
+                            "shadow-md bg-white rounded-lg p-4 flex items-center
+                            justify-between"
+                          </span>
+                          &gt;
+                        </span>
+                        <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span className="hljs-tag">
+                          &lt;<span className="hljs-name">img</span>{" "}
+                          <span className="hljs-attr">class</span>=
+                          <span className="hljs-string">"w-auto h-[25px]"</span>{" "}
+                          <span className="hljs-attr">src</span>=
+                          <span className="hljs-string">"../img/3.png"</span>{" "}
+                          <span className="hljs-attr">alt</span>=
+                          <span className="hljs-string">""</span>/&gt;
+                        </span>
+                        <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span className="hljs-comment">
+                          &lt;!-- Search Bar and Profile Section --&gt;
+                        </span>
+                        <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span className="hljs-tag">
+                          &lt;<span className="hljs-name">div</span>{" "}
+                          <span className="hljs-attr">class</span>=
+                          <span className="hljs-string">
+                            "flex items-center md:space-x-5 lg:space-x-5"
+                          </span>
+                          &gt;
+                        </span>
+                        <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span className="hljs-comment">
+                          &lt;!-- Search Bar --&gt;
+                        </span>
+                        <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span className="hljs-tag">
+                          &lt;<span className="hljs-name">input</span>{" "}
+                          <span className="hljs-attr">type</span>=
+                          <span className="hljs-string">"text"</span>{" "}
+                          <span className="hljs-attr">class</span>=
+                          <span className="hljs-string">
+                            "ps-8 p-2 text-sm text-gray-900 border
+                            border-gray-300 rounded-full bg-gray-50
+                            focus:ring-blue-500 focus:border-blue-500"
+                          </span>{" "}
+                          <span className="hljs-attr">placeholder</span>=
+                          <span className="hljs-string">"Search"</span>/&gt;
+                        </span>
+                        <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span className="hljs-tag">
+                          &lt;<span className="hljs-name">img</span>{" "}
+                          <span className="hljs-attr">class</span>=
+                          <span className="hljs-string">
+                            "w-10 h-10 rounded-full"
+                          </span>{" "}
+                          <span className="hljs-attr">src</span>=
+                          <span className="hljs-string">
+                            "https://i.pinimg.com/736x/eb/18/76/eb187655090227af25866572f615b426.jpg"
+                          </span>{" "}
+                          <span className="hljs-attr">alt</span>=
+                          <span className="hljs-string">"User Profile"</span>
+                          /&gt;
+                        </span>
+                        <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span className="hljs-tag">
+                          &lt;/<span className="hljs-name">div</span>&gt;
+                        </span>
+                        <br />
+                        &nbsp;&nbsp;
+                        <span className="hljs-tag">
+                          &lt;/<span className="hljs-name">nav</span>&gt;
+                        </span>
+                        <br />
+                        <span className="hljs-tag">
+                          &lt;/<span className="hljs-name">div</span>&gt;
+                        </span>
+                        <br />
+                        <span className="hljs-tag">
+                          &lt;/<span className="hljs-name">div</span>&gt;
+                        </span>
+                      </code>
+                    </pre>
+                  </div>
+                </div>
+              </div>
+            </section>
           </>
         </main>
       </div>
