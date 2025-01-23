@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 
 function About() {
   return (
@@ -20,7 +20,7 @@ function About() {
                   We are a group of designer, creatives, and artists who create
                   a lot of design, templates, mockups, and more. The name
                   Rachana is of Sanskrit origin and generally means "creation"
-                  or "design." It signifies the act of creation or the process
+                  or &quot;design.&quot; It signifies the act of creation or the process
                   of bringing something into existence.
                 </p>
               </div>
