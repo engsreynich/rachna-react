@@ -29,17 +29,19 @@ function About() {
 
           {/* Mission and Vision */}
           <div className="flex-1 grid gap-6">
-            <div className="bg-green-100 p-6 rounded-lg shadow-lg">
+            <div className="bg-pink-200 p-6 rounded-lg shadow-lg">
               <h3 className="text-xl font-semibold">Our Mission</h3>
               <p className="text-sm mt-2">
-                To deliver innovative IT solutions that empower businesses.
+                To revolutionize user connections through innovative,
+                user-centric website designs that are visually stunning,
+                intuitive, and functional.
               </p>
             </div>
             <div className="bg-pink-500 p-6 rounded-lg shadow-lg text-white">
               <h3 className="text-xl font-semibold">Our Vision</h3>
               <p className="text-sm mt-2">
-                To lead in technology and shape a smarter, more connected
-                future.
+                To empower brands with seamless digital experiences that foster
+                growth, engagement, and distinction in the digital world.
               </p>
             </div>
           </div>

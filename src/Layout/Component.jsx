@@ -46,7 +46,8 @@ function Component(props) {
             </h1>
             <p className="mt-4 mb-4 text-gray-600 dark:text-white">
               Use the button component inside forms, as links, social login,
-              payment options with support for multiple styles, colors,
+              payment options wi
+              th support for multiple styles, colors,
               gradients, and shadows
             </p>
           </div>
@@ -358,6 +359,7 @@ function Component(props) {
                 </button>
               </div>
               {/* Gradient monochrome */}
+              
               <div className="bg-white-100 p-10">
                 {/* place set responsive */}
                 <div className="flex flex-wrap items-center gap-x-5 gap-y-6">
@@ -1476,7 +1478,7 @@ function Component(props) {
                     </button>
                   </form>
                 </div>
-                
+
                 <div className="bg-white rounded-lg shadow-sm">
                   <div className="bg-gray-300 flex justify-between items-center px-4 py-2 border-b border-gray-300">
                     <span className="text-black font-medium">HTML</span>
