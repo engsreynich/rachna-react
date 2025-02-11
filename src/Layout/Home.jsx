@@ -24,7 +24,7 @@ function Home(props) {
                     </Link>
                 </div>
                 <div className="hidden lg:mt-0 lg:col-span-5 lg:flex" data-aos="fade-down">
-                    <img src="/img/hero.png" alt="mockup" />
+                    <img src="./img/hero.png" alt="mockup" />
                 </div>
             </div>
         </section>

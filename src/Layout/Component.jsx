@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import CodeDisplay from "../components/CodeDisplay"
-import SearchBox from "../components/SearchBox"
+import CodeDisplay from "../components/CodeDisplay";
+import SearchBox from "../components/SearchBox";
 
 function Component(props) {
   const [copiedStates, setCopiedStates] = useState({});
@@ -48,8 +48,7 @@ function Component(props) {
             </h1>
             <p className="mt-4 mb-4 text-gray-600 dark:text-white">
               Use the button component inside forms, as links, social login,
-              payment options wi
-              th support for multiple styles, colors,
+              payment options wi th support for multiple styles, colors,
               gradients, and shadows
             </p>
           </div>
@@ -388,7 +387,7 @@ function Component(props) {
                 </button>
               </div>
               {/* Gradient monochrome */}
-              
+
               <div className="bg-white-100 p-10">
                 {/* place set responsive */}
                 <div className="flex flex-wrap items-center gap-x-5 gap-y-6">
@@ -1072,7 +1071,6 @@ function Component(props) {
               <div className="bg-white rounded-lg shadow-sm">
                 <div className="bg-gray-300 flex justify-between items-center px-4 py-2 border-b border-gray-300">
                   <span className="text-black font-medium">HTML</span>
-                
                 </div>
                 {/* Content */}
                 {/* <div className="overflow-x-auto bg-gray-100 p-2 rounded-md">
@@ -1138,7 +1136,7 @@ function Component(props) {
                     {"                "}
                   </pre>
                 </div> */}
-                <SearchBox/>
+                <SearchBox />
               </div>
             </div>
 
@@ -1312,10 +1310,10 @@ function Component(props) {
                   <div className="bg-gray-300 flex justify-between items-center px-4 py-2 border-b border-gray-300">
                     <span className="text-black font-medium">HTML</span>
                     <button
-                    className="flex items-center space-x-3 text-black hover:text-gray-800"
-                    onClick={() =>
-                      handleCopy(
-                        `
+                      className="flex items-center space-x-3 text-black hover:text-gray-800"
+                      onClick={() =>
+                        handleCopy(
+                          `
                   <div className="container mx-auto p-6">
                   <label
                     htmlFor="url"
@@ -1330,15 +1328,15 @@ function Component(props) {
                     placeholder="https://example.com"
                   />
                 </div>      `.trim(), // Trim to remove extra whitespace
-                        "defaultButton"
-                      )
-                    }
-                  >
-                    <i className="far fa-copy" />
-                    <span>
-                      {copiedStates["defaultButton"] ? "Copied!" : "Copy"}
-                    </span>
-                  </button>
+                          "defaultButton"
+                        )
+                      }
+                    >
+                      <i className="far fa-copy" />
+                      <span>
+                        {copiedStates["defaultButton"] ? "Copied!" : "Copy"}
+                      </span>
+                    </button>
                   </div>
                   {/* Content */}
                   <div className="overflow-x-auto bg-gray-100 p-2 rounded-md">
@@ -1366,8 +1364,6 @@ function Component(props) {
                   </div>
                 </div>
               </div>
-
-              
             </div>
             <div className="px-6">
               <h1
@@ -1465,10 +1461,10 @@ function Component(props) {
                   <div className="bg-gray-300 flex justify-between items-center px-4 py-2 border-b border-gray-300">
                     <span className="text-black font-medium">HTML</span>
                     <button
-                    className="flex items-center space-x-3 text-black hover:text-gray-800"
-                    onClick={() =>
-                      handleCopy(
-                        `
+                      className="flex items-center space-x-3 text-black hover:text-gray-800"
+                      onClick={() =>
+                        handleCopy(
+                          `
  <nav className="shadow-md bg-white rounded-lg border-gray-200 dark:bg-gray-900 dark:border-gray-700">
                     <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                       <a
@@ -1520,15 +1516,15 @@ function Component(props) {
                     </div>
                   </nav>
                         `.trim(), // Trim to remove extra whitespace
-                        "defaultButton"
-                      )
-                    }
-                  >
-                    <i className="far fa-copy" />
-                    <span>
-                      {copiedStates["defaultButton"] ? "Copied!" : "Copy"}
-                    </span>
-                  </button>
+                          "defaultButton"
+                        )
+                      }
+                    >
+                      <i className="far fa-copy" />
+                      <span>
+                        {copiedStates["defaultButton"] ? "Copied!" : "Copy"}
+                      </span>
+                    </button>
                   </div>
                   {/* code tailwind for each button */}
                   <div className="overflow-x-auto bg-gray-100 p-2 rounded-md">
@@ -1877,10 +1873,10 @@ function Component(props) {
                   <div className="bg-gray-300 flex justify-between items-center px-4 py-2 border-b border-gray-300">
                     <span className="text-black font-medium">HTML</span>
                     <button
-                    className="flex items-center space-x-3 text-black hover:text-gray-800"
-                    onClick={() =>
-                      handleCopy(
-                        `
+                      className="flex items-center space-x-3 text-black hover:text-gray-800"
+                      onClick={() =>
+                        handleCopy(
+                          `
 <nav class="shadow-md bg-white rounded-lg border-gray-200 dark:bg-gray-900 dark:border-gray-700">
                     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                       <a
@@ -2005,15 +2001,15 @@ function Component(props) {
                   </nav>
 
                         `.trim(), // Trim to remove extra whitespace
-                        "defaultButton"
-                      )
-                    }
-                  >
-                    <i className="far fa-copy" />
-                    <span>
-                      {copiedStates["defaultButton"] ? "Copied!" : "Copy"}
-                    </span>
-                  </button>
+                          "defaultButton"
+                        )
+                      }
+                    >
+                      <i className="far fa-copy" />
+                      <span>
+                        {copiedStates["defaultButton"] ? "Copied!" : "Copy"}
+                      </span>
+                    </button>
                   </div>
                   {/* code tailwind for each button */}
                   <div className="overflow-x-auto bg-gray-100 p-2 rounded-md">
@@ -2499,10 +2495,10 @@ function Component(props) {
                   <div className="bg-gray-300 flex justify-between items-center px-4 py-2 border-b border-gray-300">
                     <span className="text-black font-medium">HTML</span>
                     <button
-                    className="flex items-center space-x-3 text-black hover:text-gray-800"
-                    onClick={() =>
-                      handleCopy(
-                        `
+                      className="flex items-center space-x-3 text-black hover:text-gray-800"
+                      onClick={() =>
+                        handleCopy(
+                          `
 <nav class="shadow-md bg-white  rounded-lg dark:bg-gray-900">
                     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                       <a
@@ -2558,15 +2554,15 @@ function Component(props) {
                     </div>
                   </nav>
                         `.trim(), // Trim to remove extra whitespace
-                        "defaultButton"
-                      )
-                    }
-                  >
-                    <i className="far fa-copy" />
-                    <span>
-                      {copiedStates["defaultButton"] ? "Copied!" : "Copy"}
-                    </span>
-                  </button>
+                          "defaultButton"
+                        )
+                      }
+                    >
+                      <i className="far fa-copy" />
+                      <span>
+                        {copiedStates["defaultButton"] ? "Copied!" : "Copy"}
+                      </span>
+                    </button>
                   </div>
                   {/* code tailwind for each button */}
                   <div className="overflow-x-auto bg-gray-100 p-2 rounded-md">
@@ -2796,10 +2792,10 @@ function Component(props) {
                   <div className="bg-gray-300 flex justify-between items-center px-4 py-2 border-b border-gray-300">
                     <span className="text-black font-medium">HTML</span>
                     <button
-                    className="flex items-center space-x-3 text-black hover:text-gray-800"
-                    onClick={() =>
-                      handleCopy(
-                        `
+                      className="flex items-center space-x-3 text-black hover:text-gray-800"
+                      onClick={() =>
+                        handleCopy(
+                          `
                   <nav class=" bg-pink-400 shadow-md rounded-lg border-gray-200 dark:bg-gray-900 dark:border-gray-700">
                     <div class="  flex flex-wrap items-center justify-between mx-auto p-4">
                       <a
@@ -2868,15 +2864,15 @@ function Component(props) {
                     </div>
                   </nav>
                         `.trim(), // Trim to remove extra whitespace
-                        "defaultButton"
-                      )
-                    }
-                  >
-                    <i className="far fa-copy" />
-                    <span>
-                      {copiedStates["defaultButton"] ? "Copied!" : "Copy"}
-                    </span>
-                  </button>
+                          "defaultButton"
+                        )
+                      }
+                    >
+                      <i className="far fa-copy" />
+                      <span>
+                        {copiedStates["defaultButton"] ? "Copied!" : "Copy"}
+                      </span>
+                    </button>
                   </div>
                   {/* code tailwind for each button */}
                   <div className="overflow-x-auto bg-gray-100 p-2 rounded-md">
@@ -3076,25 +3072,25 @@ function Component(props) {
                   <div className="bg-gray-300 flex justify-between items-center px-4 py-2 border-b border-gray-300">
                     <span className="text-black font-medium">HTML</span>
                     <button
-                    className="flex items-center space-x-3 text-black hover:text-gray-800"
-                    onClick={() =>
-                      handleCopy(
-                        `
+                      className="flex items-center space-x-3 text-black hover:text-gray-800"
+                      onClick={() =>
+                        handleCopy(
+                          `
 <button type="button" class="text-white text-xs font-medium bg-yellow-600 px-[20px] py-[10px] rounded-lg hover:bg-yellow-800 focus:outline-none focus:ring-4 focus:ring-yellow-300 dark:focus:ring-yellow-700 dark:focus:bg-yellow-800">Button</button>
 <button type="button" class="text-white text-xs font-medium bg-blue-600 px-[20px] py-[10px] rounded-lg hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-700 dark:focus:bg-blue-800">Button</button>
 <button type="button" class="text-white text-xs font-medium bg-green-600 px-[20px] py-[10px] rounded-lg hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 dark:focus:ring-green-700 dark:focus:bg-green-800">Button</button>
 <button type="button" class="text-white text-xs font-medium bg-red-600 px-[20px] py-[10px] rounded-lg hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 dark:focus:ring-red-700 dark:focus:bg-red-800">Button</button>
 <button type="button" class="text-white text-xs font-medium bg-orange-600 px-[20px] py-[10px] rounded-lg hover:bg-orange-800 focus:outline-none focus:ring-4 focus:ring-orange-300 dark:focus:ring-orange-700 dark:focus:bg-orange-800">Button</button>
       `.trim(), // Trim to remove extra whitespace
-                        "defaultButton"
-                      )
-                    }
-                  >
-                    <i className="far fa-copy" />
-                    <span>
-                      {copiedStates["defaultButton"] ? "Copied!" : "Copy"}
-                    </span>
-                  </button>
+                          "defaultButton"
+                        )
+                      }
+                    >
+                      <i className="far fa-copy" />
+                      <span>
+                        {copiedStates["defaultButton"] ? "Copied!" : "Copy"}
+                      </span>
+                    </button>
                   </div>
                   {/* code tailwind for each button */}
                   <div className="overflow-x-auto bg-gray-100 p-2 rounded-md">
@@ -3251,25 +3247,25 @@ function Component(props) {
                   <div className="bg-gray-300 flex justify-between items-center px-4 py-2 border-b border-gray-300">
                     <span className="text-black font-medium">HTML</span>
                     <button
-                    className="flex items-center space-x-3 text-black hover:text-gray-800"
-                    onClick={() =>
-                      handleCopy(
-                        `
+                      className="flex items-center space-x-3 text-black hover:text-gray-800"
+                      onClick={() =>
+                        handleCopy(
+                          `
 <button type="button" class="text-white text-xs font-medium bg-yellow-600 px-[20px] py-[10px] rounded-lg hover:bg-yellow-800 focus:outline-none focus:ring-4 focus:ring-yellow-300 dark:focus:ring-yellow-700 dark:focus:bg-yellow-800">Button</button>
 <button type="button" class="text-white text-xs font-medium bg-blue-600 px-[20px] py-[10px] rounded-lg hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-700 dark:focus:bg-blue-800">Button</button>
 <button type="button" class="text-white text-xs font-medium bg-green-600 px-[20px] py-[10px] rounded-lg hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 dark:focus:ring-green-700 dark:focus:bg-green-800">Button</button>
 <button type="button" class="text-white text-xs font-medium bg-red-600 px-[20px] py-[10px] rounded-lg hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 dark:focus:ring-red-700 dark:focus:bg-red-800">Button</button>
 <button type="button" class="text-white text-xs font-medium bg-orange-600 px-[20px] py-[10px] rounded-lg hover:bg-orange-800 focus:outline-none focus:ring-4 focus:ring-orange-300 dark:focus:ring-orange-700 dark:focus:bg-orange-800">Button</button>
       `.trim(), // Trim to remove extra whitespace
-                        "defaultButton"
-                      )
-                    }
-                  >
-                    <i className="far fa-copy" />
-                    <span>
-                      {copiedStates["defaultButton"] ? "Copied!" : "Copy"}
-                    </span>
-                  </button>
+                          "defaultButton"
+                        )
+                      }
+                    >
+                      <i className="far fa-copy" />
+                      <span>
+                        {copiedStates["defaultButton"] ? "Copied!" : "Copy"}
+                      </span>
+                    </button>
                   </div>
                   {/* code tailwind for each button */}
                   <div className="overflow-x-auto bg-gray-100 p-2 rounded-md">
