@@ -152,7 +152,11 @@ function Docs() {
               <pre className="bg-pink-100 dark:bg-pink-900 text-pink-600 dark:text-pink-200 p-4 rounded-lg mt-4 overflow-auto mt-3 flex items-start">
                 <i className="fa-regular fa-copy text-white"></i>
                 <code>
-                  &lt;https://rachna-cdn.cloudinator.cloud/css/tailwind.css&gt;
+                  &lt;link
+                  href="https://rachna-cdn.cloudinator.cloud/css/tailwind.css"
+                  rel="stylesheet" /&gt; <br />
+                  &lt;script
+                  src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;
                 </code>
               </pre>
             </section>
