@@ -59,21 +59,21 @@ function About() {
         {/* Teacher Section */}
         <section className="bg-white dark:bg-gray-900 py-12 px-6">
           <div className="max-w-7xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-pink-600 mb-8">Teacher</h2>
+            <h2 className="text-3xl font-bold text-pink-600 mb-8">Team </h2>
             <div className="flex flex-wrap justify-center gap-6">
               <div
                 className="bg-white dark:bg-gray-950 w-[460px] h-[300px] flex flex-col shadow-lg items-center rounded-lg p-4"
                 data-aos="fade-down-right"
               >
                 <img
-                  src="./img/Teacher.jpg"
+                  src="/public/img/team.jpg"
                   alt="Teacher"
                   className="w-[200px] h-[200px] rounded-full object-cover mb-4"
                 />
                 <h3 className="font-bold text-lg dark:text-slate-100">
-                  Instructor
+                  Rachna
                 </h3>
-                <p className="text-sm dark:text-slate-100">Meng Hann</p>
+                <p className="text-sm dark:text-slate-100">Team</p>
               </div>
             </div>
           </div>
@@ -107,15 +107,30 @@ function About() {
               {/* Members */}
               {[
                 {
-                  name: "Oeng SiKeat",
+                  name: "NHANH KIMSON",
                   role: "Member",
-                  img: "./img/SiKeat.jpg",
+                  img: "",
                 },
                 {
-                  name: "An BunKhim",
+                  name: "Svay Sereyratana",
                   role: "Member",
-                  img: "./img/BUNKHIM.jpg",
+                  img: "",
                 },
+                {
+                  name: "Bai KimHouy",
+                  role: "Member",
+                  img: "",
+                },
+                {
+                  name: "Chhengngor",
+                  role: "Member",
+                  img: "",
+                },
+                {
+                  name: "Phorn Sunnich",
+                  role: "Member",
+                  img: "",
+                }
               ].map((member, index) => (
                 <div
                   key={index}
